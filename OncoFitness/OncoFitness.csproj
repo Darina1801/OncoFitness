@@ -11,8 +11,29 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\NewQuestionPage.xaml.cs">
+      <DependentUpon>NewQuestionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\QuestionDetailPage.xaml.cs">
+      <DependentUpon>QuestionDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\QuestionsPage.xaml.cs">
+      <DependentUpon>QuestionsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\NotificationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\HistoryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

@@ -8,22 +8,22 @@ using Xamarin.Forms;
 
 namespace OncoFitness.ViewModels
 {
-	public class ItemsViewModel : BaseViewModel
+	public class QuestionViewModel : BaseViewModel
 	{
-		private Item _selectedItem;
+		private QuestionAndAnswer _selectedItem;
 
-		public ObservableCollection<Item> Items { get; }
+		public ObservableCollection<QuestionAndAnswer> Items { get; }
 		public Command LoadItemsCommand { get; }
 		public Command AddItemCommand { get; }
-		public Command<Item> ItemTapped { get; }
+		public Command<QuestionAndAnswer> ItemTapped { get; }
 
-		public ItemsViewModel()
+		public QuestionViewModel()
 		{
-			Title = "Browse";
-			Items = new ObservableCollection<Item>();
+			Title = "Частые вопросы";
+			Items = new ObservableCollection<QuestionAndAnswer>();
 			LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-			ItemTapped = new Command<Item>(OnItemSelected);
+			ItemTapped = new Command<QuestionAndAnswer>(OnItemSelected);
 
 			AddItemCommand = new Command(OnAddItem);
 		}
@@ -57,7 +57,7 @@ namespace OncoFitness.ViewModels
 			SelectedItem = null;
 		}
 
-		public Item SelectedItem
+		public QuestionAndAnswer SelectedItem
 		{
 			get => _selectedItem;
 			set
@@ -69,16 +69,16 @@ namespace OncoFitness.ViewModels
 
 		private async void OnAddItem(object obj)
 		{
-			await Shell.Current.GoToAsync(nameof(NewItemPage));
+			await Shell.Current.GoToAsync(nameof(NewQuestionPage));
 		}
 
-		async void OnItemSelected(Item item)
+		async void OnItemSelected(QuestionAndAnswer item)
 		{
 			if (item == null)
 				return;
 
 			// This will push the ItemDetailPage onto the navigation stack
-			await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
+			await Shell.Current.GoToAsync($"{nameof(QuestionDetailPage)}?{nameof(QuestionDetailViewModel.ItemId)}={item.Id}");
 		}
 	}
 }

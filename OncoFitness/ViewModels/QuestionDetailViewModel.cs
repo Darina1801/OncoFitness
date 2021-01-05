@@ -7,23 +7,23 @@ using Xamarin.Forms;
 namespace OncoFitness.ViewModels
 {
 	[QueryProperty(nameof(ItemId), nameof(ItemId))]
-	public class ItemDetailViewModel : BaseViewModel
+	public class QuestionDetailViewModel : BaseViewModel
 	{
 		private string itemId;
-		private string text;
-		private string description;
+		private string question;
+		private string answer;
 		public string Id { get; set; }
 
-		public string Text
+		public string Question
 		{
-			get => text;
-			set => SetProperty(ref text, value);
+			get => question;
+			set => SetProperty(ref question, value);
 		}
 
-		public string Description
+		public string Answer
 		{
-			get => description;
-			set => SetProperty(ref description, value);
+			get => answer;
+			set => SetProperty(ref answer, value);
 		}
 
 		public string ItemId
@@ -45,12 +45,12 @@ namespace OncoFitness.ViewModels
 			{
 				var item = await DataStore.GetItemAsync(itemId);
 				Id = item.Id;
-				Text = item.Text;
-				Description = item.Description;
+				Question = item.Question;
+				Answer = item.Answer;
 			}
 			catch (Exception)
 			{
-				Debug.WriteLine("Failed to Load Item");
+				Debug.WriteLine("Failed to Load Question");
 			}
 		}
 	}
