@@ -15,13 +15,13 @@
       https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
     -->
     <StackLayout>
-        <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+        <!--<StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">-->
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,30,0,30" VerticalOptions="FillAndExpand">
-                    <Image Source="OncoFitness_Logo.png" VerticalOptions="Center" HeightRequest="150" />
+                <ContentView Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+                    <Image Source="Photo_Questions.jpg" VerticalOptions="Center" HeightRequest="270" />
                 </ContentView>
             </StackLayout>
-        </StackLayout>
+        <!--</StackLayout>-->   
         <RefreshView x:DataType="local:QuestionViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
             <CollectionView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
