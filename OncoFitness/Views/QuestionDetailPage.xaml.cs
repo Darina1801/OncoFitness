@@ -4,12 +4,12 @@ using Xamarin.Forms;
 
 namespace OncoFitness.Views
 {
-	public partial class ItemDetailPage : ContentPage
+	public partial class QuestionDetailPage : ContentPage
 	{
-		public ItemDetailPage()
+		public QuestionDetailPage()
 		{
 			InitializeComponent();
-			BindingContext = new ItemDetailViewModel();
+			BindingContext = new QuestionDetailViewModel();
 		}
 	}
 }

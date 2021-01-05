@@ -8,14 +8,14 @@ using Xamarin.Forms.Xaml;
 
 namespace OncoFitness.Views
 {
-	public partial class NewItemPage : ContentPage
+	public partial class NewQuestionPage : ContentPage
 	{
-		public Item Item { get; set; }
+		public QuestionAndAnswer Question { get; set; }
 
-		public NewItemPage()
+		public NewQuestionPage()
 		{
 			InitializeComponent();
-			BindingContext = new NewItemViewModel();
+			BindingContext = new NewQuestionViewModel();
 		}
 	}
 }

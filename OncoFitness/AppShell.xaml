@@ -96,13 +96,13 @@
         <ShellContent Route="HistoryPage" ContentTemplate="{DataTemplate local:HistoryPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Частые вопросы" Icon="icon_question.png">
-        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+        <ShellContent Route="QuestionsPage" ContentTemplate="{DataTemplate local:QuestionsPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Напоминание" Icon="icon_notification.png">
-        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+        <ShellContent Route="NotificationPage" ContentTemplate="{DataTemplate local:NotificationPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Настройки" Icon="icon_settings.png">
-        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+        <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to 

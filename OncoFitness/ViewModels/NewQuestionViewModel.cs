@@ -7,13 +7,14 @@ using Xamarin.Forms;
 
 namespace OncoFitness.ViewModels
 {
-	public class NewItemViewModel : BaseViewModel
+	public class NewQuestionViewModel : BaseViewModel
 	{
-		private string text;
+		private string question;
 		private string description;
 
-		public NewItemViewModel()
+		public NewQuestionViewModel()
 		{
+			//Change method OnSave to Send to developers
 			SaveCommand = new Command(OnSave, ValidateSave);
 			CancelCommand = new Command(OnCancel);
 			this.PropertyChanged +=
@@ -22,14 +23,14 @@ namespace OncoFitness.ViewModels
 
 		private bool ValidateSave()
 		{
-			return !String.IsNullOrWhiteSpace(text)
+			return !String.IsNullOrWhiteSpace(question)
 				&& !String.IsNullOrWhiteSpace(description);
 		}
 
-		public string Text
+		public string Question
 		{
-			get => text;
-			set => SetProperty(ref text, value);
+			get => question;
+			set => SetProperty(ref question, value);
 		}
 
 		public string Description
@@ -49,11 +50,11 @@ namespace OncoFitness.ViewModels
 
 		private async void OnSave()
 		{
-			Item newItem = new Item()
+			QuestionAndAnswer newItem = new QuestionAndAnswer()
 			{
 				Id = Guid.NewGuid().ToString(),
-				Text = Text,
-				Description = Description
+				Question = Question,
+				Answer = Description
 			};
 
 			await DataStore.AddItemAsync(newItem);

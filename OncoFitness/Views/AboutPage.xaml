@@ -40,6 +40,8 @@
                         Command="{Binding OpenWebCommand}"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
+
+                <Label  Text="Данное приложение не может служить полной заменой консультации с врачем ЛФК, инструктором-методистом или реабилитологом." FontSize="10" Padding="0,0,0,0" HorizontalTextAlignment="Center"/>
             </StackLayout>
         </ScrollView>
     </Grid>
