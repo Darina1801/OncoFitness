@@ -22,20 +22,21 @@
         </Grid.RowDefinitions>
         <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                <ContentView Padding="0,30,0,30" VerticalOptions="FillAndExpand">
                     <Image Source="OncoFitness_Logo.png" VerticalOptions="Center" HeightRequest="150" />
                 </ContentView>
             </StackLayout>
         </StackLayout>
         <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <Label Text="Начни заниматься сегодня" FontSize="Title"/>
-                <Label Text="1. Выбери проблемную зону" FontSize="16" Padding="0,0,0,0"/>
-                <Label Text="2. Подбери упражения" FontSize="16" Padding="0,0,0,0"/>
-                <Label Text="3. Занимайся ежедневно" FontSize="16" Padding="0,0,0,0"/>
-                <Label Text="4. Делись своими успехами с инструктором" FontSize="16" Padding="0,0,0,0"/>
-               
-                <Button Margin="0,10,0,0" Text="Начать заниматься!"
+            <StackLayout Orientation="Vertical" Padding="20,24,20,24" Spacing="5">
+                <Label Text="Добро пожаловать в OncoFitness!" FontSize="Title" HorizontalTextAlignment="Center"/>
+                <Label Text="Данное приложение создано Кавокиной Д.А. в рамках выпускной квалификационной работы по направлению бакалавриата 
+                       49.03.02 «Физическая культура для лиц с отклонениями в состоянии здоровья (адаптивная физическая культура)»" FontSize="16" Padding="0,0,0,0" HorizontalTextAlignment="Center"/>
+                <Label Text="Тема работы:" FontSize="16" Padding="0,0,0,0" HorizontalTextAlignment="Center"/>
+                <Label Text="«МЕТОДИКА ЗАНЯТИЙ ЛЕЧЕБНОЙ ГИМНАСТИКОЙ ДЛЯ ВЗРОСЛЫХ ПАЦИЕНТОВ C ДИАГНОЗОМ ЛИМФОГРАНУЛЕМАТОЗ ХОДЖКИНА ПОСЛЕ ТРАНСПЛАНТАЦИИ КОСТНОГО МОЗГА, ПРЕБЫВАЮЩИХ В ДНЕВНОМ СТАЦИОНАРЕ»" FontSize="16" Padding="0,0,0,0" HorizontalTextAlignment="Center"/>
+                <Label Text="Успешных тренировок!" FontSize="16" Padding="0,0,0,0" HorizontalTextAlignment="Center"/>
+
+                <Button Margin="0,10,0,0" Text="Начать заниматься"
                         Command="{Binding OpenWebCommand}"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
