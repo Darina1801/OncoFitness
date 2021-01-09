@@ -4,11 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="OncoFitness.Views.LoginPage"
-             Shell.NavBarIsVisible="False">
+             x:Class="OncoFitness.Views.StartTrainingPage"
+             Title="Новая тренировка">
+
     <ContentPage.Content>
-        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
+        <StackLayout Padding="20,0,20,0" VerticalOptions="Center">
+            <Button VerticalOptions="Center" Text="Закончить" Command="{Binding LoginCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -56,7 +56,7 @@
             </ContentView>
 
             <Button Grid.Row="1" Margin="20,10,20,10" Text="Начать тренировку"
-                        Command="{Binding OpenWebCommand}"
+                        Command="{Binding StartTrainingCommand}"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
 

@@ -10,12 +10,12 @@ using Xamarin.Forms.Xaml;
 namespace OncoFitness.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LoginPage : ContentPage
+	public partial class StartTrainingPage : ContentPage
 	{
-		public LoginPage()
+		public StartTrainingPage()
 		{
 			InitializeComponent();
-			this.BindingContext = new LoginViewModel();
+			this.BindingContext = new StartTrainingViewModel();
 		}
 	}
 }
