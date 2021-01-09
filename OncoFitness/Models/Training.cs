@@ -9,8 +9,8 @@ namespace OncoFitness.Models
 		public string Id { get; set; }
 		public DateTime TrainingDateTime { get; set; }
 		public string TrainingType { get; set; }
-		public int TraineeArterTraining { get; set; }
-		public TimeSpan TriningElapsedTime { get; set; }
+		public int PatientAfterTraining { get; set; }
+		public TimeSpan TrainingElapsedTime { get; set; }
 		public string TrainingNotes { get; set; }
 	}
 }
