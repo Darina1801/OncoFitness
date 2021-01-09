@@ -35,7 +35,7 @@ namespace OncoFitness.ViewModels
 			try
 			{
 				Items.Clear();
-				var items = await DataStore.GetItemsAsync(true);
+				var items = await QAndADataStore.GetItemsAsync(true);
 				foreach (var item in items)
 				{
 					Items.Add(item);
@@ -77,7 +77,7 @@ namespace OncoFitness.ViewModels
 			if (item == null)
 				return;
 
-			// This will push the ItemDetailPage onto the navigation stack
+			// This will push the QuestionDetailPage onto the navigation stack
 			await Shell.Current.GoToAsync($"{nameof(QuestionDetailPage)}?{nameof(QuestionDetailViewModel.ItemId)}={item.Id}");
 		}
 	}

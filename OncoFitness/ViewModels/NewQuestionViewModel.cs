@@ -57,7 +57,7 @@ namespace OncoFitness.ViewModels
 				Answer = Description
 			};
 
-			await DataStore.AddItemAsync(newItem);
+			await QAndADataStore.AddItemAsync(newItem);
 
 			// This will pop the current page off the navigation stack
 			await Shell.Current.GoToAsync("..");
