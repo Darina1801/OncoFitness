@@ -10,7 +10,8 @@ namespace OncoFitness.ViewModels
 {
 	public class BaseViewModel : INotifyPropertyChanged
 	{
-		public IDataStore<QuestionAndAnswer> DataStore => DependencyService.Get<IDataStore<QuestionAndAnswer>>();
+		public IDataStore<QuestionAndAnswer> QAndADataStore => DependencyService.Get<IDataStore<QuestionAndAnswer>>();
+		public IDataStore<Training> TrainingDataStore => DependencyService.Get<IDataStore<Training>>();
 
 		bool isBusy = false;
 		public bool IsBusy

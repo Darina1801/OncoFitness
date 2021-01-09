@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:controls="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar"               
+             xmlns:local="clr-namespace:OncoFitness.ViewModels"
+             xmlns:model="clr-namespace:OncoFitness.Models" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OncoFitness.Views.HistoryPage"
              Title="{Binding Title}">
@@ -7,32 +10,83 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="icon_share.png" Text="Поделиться" Command="{Binding AddItemCommand}" />
     </ContentPage.ToolbarItems>
-    
-    <ListView x:Name="MyListView"
-            ItemsSource="{Binding Items}"
-            ItemTapped="Handle_ItemTapped"
-            CachingStrategy="RecycleElement">
-    <!--Built in Cells-->
-    <ListView.ItemTemplate>
-        <DataTemplate>
-            <TextCell Text="{Binding .}" />
-        </DataTemplate>
-    </ListView.ItemTemplate>
-    
-    <!--Custom View Cells-->
-    <!--
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <StackLayout>
-            <Label Text="{Binding Text}" 
-                   Style="{DynamicResource ListItemTextStyle}" />
-            <Label Text="{Binding Detail}" 
-                   Style="{DynamicResource ListItemDetailTextStyle}"/>
-          </StackLayout>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-    -->
-  </ListView>
+
+    <!--<ScrollView VerticalOptions="StartAndExpand" >-->
+        <!--<StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+                    <controls:Calendar Padding="10,0,10,0"   
+                           SelectedBorderWidth="4"   
+                           DisabledBorderColor="Black"  
+                           ShowNumberOfWeek="false"  
+                           StartDay="Monday"  
+                           TitleLabelTextColor="Purple"  
+                           TitleLeftArrowTextColor="Blue" 
+                           TitleRightArrowTextColor="Blue"
+                           SelectedDate="{Binding Date}"  
+                           SpecialDates="{Binding Attendances}"  
+                           DateCommand="{Binding DateChosen}"/>
+                </ContentView>
+
+                <Button  Margin="20,10,20,10" Text="Начать тренировку"
+                        Command="{Binding OpenWebCommand}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+            </StackLayout>
+        </StackLayout>-->
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="370"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+                <ContentView Grid.Row="0" Padding="0,10,0,0" VerticalOptions="FillAndExpand">
+                <controls:Calendar Padding="10,0,10,0"   
+                           SelectedBorderWidth="4"   
+                           DisabledBorderColor="Black"  
+                           ShowNumberOfWeek="false"  
+                           StartDay="Monday"  
+                           TitleLabelTextColor="Purple"  
+                           TitleLeftArrowTextColor="Blue" 
+                           TitleRightArrowTextColor="Blue"
+                           SelectedDate="{Binding Date}"  
+                           SpecialDates="{Binding Attendances}"  
+                           DateCommand="{Binding DateChosen}"/>
+            </ContentView>
+
+            <Button Grid.Row="1" Margin="20,10,20,10" Text="Начать тренировку"
+                        Command="{Binding OpenWebCommand}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+
+            <RefreshView Grid.Row="2" x:DataType="local:HistoryViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Items}"
+                SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="10" x:DataType="model:Training">
+                                <Label Text="{Binding TrainingType}" 
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" />
+                                <Label Text="{Binding TrainingNotes}" 
+                            LineBreakMode="TailTruncation"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:HistoryViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                    </TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </Grid>
+    <!--</ScrollView>-->
 </ContentPage>

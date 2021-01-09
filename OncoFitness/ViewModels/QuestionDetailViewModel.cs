@@ -43,7 +43,7 @@ namespace OncoFitness.ViewModels
 		{
 			try
 			{
-				var item = await DataStore.GetItemAsync(itemId);
+				var item = await QAndADataStore.GetItemAsync(itemId);
 				Id = item.Id;
 				Question = item.Question;
 				Answer = item.Answer;
