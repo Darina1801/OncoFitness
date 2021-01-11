@@ -13,12 +13,15 @@ namespace OncoFitness.ViewModels
 		private string itemId;
 		private string trainingType;
 		private string trainingNotes;
+		private DateTime trainingDateTime;
+		private TimeSpan trainingElapsedTime;
+		private int patientAfterTraining;
 
 		public string Id { get; set; }
 
 		public string TrainingType
 		{
-			get => trainingType;
+			get => TrainingType;
 			set => SetProperty(ref trainingType, value);
 		}
 
@@ -27,6 +30,22 @@ namespace OncoFitness.ViewModels
 			get => trainingNotes;
 			set => SetProperty(ref trainingNotes, value);
 		}
+
+		public DateTime TrainingDateTime
+		{
+			get => trainingDateTime;
+		}
+
+		public TimeSpan TrainingElapsedTime
+		{
+			get => trainingElapsedTime;
+		}
+
+		public int PatientAfterTraining
+		{
+			get => patientAfterTraining;
+		}
+
 
 		public string ItemId
 		{

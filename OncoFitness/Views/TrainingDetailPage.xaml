@@ -8,17 +8,38 @@
         <ToolbarItem IconImageSource="icon_share.png" Text="Поделиться" Command="{Binding AddItemCommand}" />
     </ContentPage.ToolbarItems>
 
-    <!--<ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>-->
-
-    <StackLayout Spacing="20" Padding="15">
-
-        <Label Text="{Binding TrainingType}" FontSize="Medium"/>
-        <Label Text="{Binding TrainingNotes}" FontSize="Small"/>
+    <StackLayout Spacing="20" Padding="10">
+        <Frame OutlineColor="Black" IsVisible="True" Padding="0" Margin="0" VerticalOptions="FillAndExpand">
+            <Grid Padding="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.ColumnSpan="2"  Text="{Binding TrainingDateTime}" FontSize="Medium"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="{Binding PatientAfterTraining}" FontSize="Small"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding TrainingElapsedTime}" FontSize="Small"/>
+                <Label Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding TrainingNotes}" FontSize="Small"/>
+            </Grid>
+        </Frame>
+        <ListView ItemsSource="{Binding Items}" RowHeight="200" VerticalScrollBarVisibility="Never">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Text="1"/>
+                        <Label Grid.Column="1" Text="{Binding Name}"/>
+                        <Label Grid.Column="2" Text="{Binding ExerciseElapsedTime}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 </ContentPage>
