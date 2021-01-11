@@ -1,17 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OncoFitness.Views.TrainingDetailPage">
+             x:Class="OncoFitness.Views.TrainingDetailPage"
+             Title="{Binding TrainingType}">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="icon_share.png" Text="Поделиться" Command="{Binding AddItemCommand}" />
     </ContentPage.ToolbarItems>
 
-    <ContentPage.Content>
+    <!--<ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
-    </ContentPage.Content>
+    </ContentPage.Content>-->
+
+    <StackLayout Spacing="20" Padding="15">
+
+        <Label Text="{Binding TrainingType}" FontSize="Medium"/>
+        <Label Text="{Binding TrainingNotes}" FontSize="Small"/>
+    </StackLayout>
 </ContentPage>

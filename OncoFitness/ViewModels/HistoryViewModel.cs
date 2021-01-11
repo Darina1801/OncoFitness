@@ -16,6 +16,7 @@ namespace OncoFitness.ViewModels
 		private Training _selectedItem;
 		public ObservableCollection<Training> Items { get; set; }
 		public Command LoadItemsCommand { get; }
+		public Command StartTrainingCommand { get; }
 		public Command<Training> ItemTapped { get; }
 		public HistoryViewModel()
 		{
@@ -23,6 +24,7 @@ namespace OncoFitness.ViewModels
 
 			Items = new ObservableCollection<Training>();
 			LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+			StartTrainingCommand = new Command(async () => await ExecuteStartTrainingCommand());
 
 			ItemTapped = new Command<Training>(OnItemSelected);
 
@@ -42,6 +44,25 @@ namespace OncoFitness.ViewModels
 				{
 					Items.Add(item);
 				}
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex);
+			}
+			finally
+			{
+				IsBusy = false;
+			}
+		}
+
+		async Task ExecuteStartTrainingCommand()
+		{
+			IsBusy = true;
+
+			try
+			{
+				await Shell.Current.GoToAsync(nameof(StartTrainingPage));
+				//await Shell.Current.GoToAsync($"{nameof(StartTrainingPage)}?{nameof(TrainingDetailViewModel.ItemId)}={item.Id}");
 			}
 			catch (Exception ex)
 			{
