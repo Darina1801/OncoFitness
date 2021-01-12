@@ -5,20 +5,87 @@
              Title="{Binding TrainingType}">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="icon_share.png" Text="Поделиться" Command="{Binding AddItemCommand}" />
+        <ToolbarItem IconImageSource="icon_share.png" 
+                     Text="Поделиться" 
+                     Command="{Binding AddItemCommand}" />
     </ContentPage.ToolbarItems>
 
-    <!--<ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>-->
-
-    <StackLayout Spacing="20" Padding="15">
-
-        <Label Text="{Binding TrainingType}" FontSize="Medium"/>
-        <Label Text="{Binding TrainingNotes}" FontSize="Small"/>
+    <StackLayout>
+        <Grid Padding="5" 
+              HorizontalOptions="FillAndExpand" 
+              VerticalOptions="StartAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition  Height="2"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" 
+                   Grid.ColumnSpan="2" 
+                   Margin="15, 0, 15, 0"
+                   Text="{Binding TrainingDateTime}" 
+                   FontSize="Medium"/>
+            <Label Grid.Row="1" 
+                   Grid.Column="0"
+                   Margin="15, 0, 15, 0"
+                   Text="{Binding PatientAfterTraining}" 
+                   FontSize="Small"/>
+            <Label Grid.Row="1" 
+                   Grid.Column="1" 
+                   Margin="15, 0, 15, 0"
+                   Text="{Binding TrainingElapsedTime}" 
+                   FontSize="Small"/>
+            <Label Grid.Row="2" 
+                   Grid.ColumnSpan="2" 
+                   Margin="15, 0, 15, 0"
+                   Text="{Binding TrainingNotes}" 
+                   FontSize="Small"/>
+            <BoxView Grid.Row="3"
+                     Grid.ColumnSpan="2"
+                     Color="Black"/>
+            <ListView ItemsSource="{Binding Items}" 
+                      Grid.Row="4"
+                      Grid.ColumnSpan="2"
+                      VerticalScrollBarVisibility="Never">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="250"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0"
+                                       Padding="15, 5, 15, 5"
+                                       FontSize="Subtitle"
+                                       VerticalOptions="Center"
+                                       Text="{Binding Count}"/>
+                                <Label Grid.Column="1" 
+                                       Padding="0, 5, 0, 5"
+                                       FontSize="Subtitle" 
+                                       VerticalOptions="Center"
+                                       Text="{Binding Name}"/>
+                                <Image Grid.Column="2"
+                                       Source="icon_notification.png"
+                                       Margin="0, 0, 0, 0"
+                                       VerticalOptions="Center"/>
+                                <Label Grid.Column="3" 
+                                       Padding="0, 5, 0, 5"
+                                       FontSize="Subtitle"
+                                       VerticalOptions="Center"
+                                       Text="{Binding ExerciseElapsedTime}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </StackLayout>
 </ContentPage>

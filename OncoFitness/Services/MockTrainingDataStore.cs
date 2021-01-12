@@ -15,12 +15,61 @@ namespace OncoFitness.Services
 		{
 			items = new List<Training>()
 			{
-				new Training { Id = Guid.NewGuid().ToString(), TrainingType = "Равновесие", TrainingNotes="Все упражнения дались легко. Надо больше работать над равновесием" },
-				new Training { Id = Guid.NewGuid().ToString(), TrainingType = "Укрепить ноги", TrainingNotes="Температура 38.9. Не тренировалась." },
-				new Training { Id = Guid.NewGuid().ToString(), TrainingType = "Укрепить руки", TrainingNotes="Температура 39.0. Не тренировалась." },
-				new Training { Id = Guid.NewGuid().ToString(), TrainingType = "Укрепить таз", TrainingNotes="Не понимаю упражнение \"Ягодичный мостик\". Ноги должны стоять на ширине плеч или шире?" },
-				new Training { Id = Guid.NewGuid().ToString(), TrainingType = "Укрепить пресс", TrainingNotes="Очень тяжело. Слишком сложные упражнения." },
-				new Training { Id = Guid.NewGuid().ToString(), TrainingType = "Дыхательная гимнастика", TrainingNotes="Все упражнения дались легко, но под конец занятия закружилась голова." },
+				new Training 
+				{ 
+					Id = Guid.NewGuid().ToString(), 
+					TrainingDateTime = DateTime.Now,
+					TrainingType = "Равновесие", 
+					PatientAfterTraining = 5, 
+					TrainingElapsedTime = new TimeSpan(0, 3, 45),
+					TrainingNotes="Все упражнения дались легко. Надо больше работать над равновесием" 
+					
+				},
+				new Training 
+				{ 
+					Id = Guid.NewGuid().ToString(),
+					TrainingDateTime = DateTime.Now,
+					TrainingType = "Укрепить ноги",
+					PatientAfterTraining = 5,
+					TrainingElapsedTime = new TimeSpan(0, 3, 45),
+					TrainingNotes="Температура 38.9. Не тренировалась." 
+				},
+				new Training 
+				{ 
+					Id = Guid.NewGuid().ToString(),
+					TrainingDateTime = DateTime.Now,
+					TrainingType = "Укрепить руки",
+					PatientAfterTraining = 5,
+					TrainingElapsedTime = new TimeSpan(0, 3, 45),
+					TrainingNotes="Температура 39.0. Не тренировалась." 
+				},
+				new Training 
+				{ 
+					Id = Guid.NewGuid().ToString(),
+					TrainingDateTime = DateTime.Now,
+					TrainingType = "Укрепить таз",
+					PatientAfterTraining = 5,
+					TrainingElapsedTime = new TimeSpan(0, 3, 45),
+					TrainingNotes="Не понимаю упражнение \"Ягодичный мостик\". Ноги должны стоять на ширине плеч или шире?" 
+				},
+				new Training 
+				{ 
+					Id = Guid.NewGuid().ToString(),
+					TrainingDateTime = DateTime.Now,
+					TrainingType = "Укрепить пресс",
+					PatientAfterTraining = 5,
+					TrainingElapsedTime = new TimeSpan(0, 3, 45),
+					TrainingNotes="Очень тяжело. Слишком сложные упражнения." 
+				},
+				new Training 
+				{ 
+					Id = Guid.NewGuid().ToString(),
+					TrainingDateTime = DateTime.Now,
+					TrainingType = "Дыхательная гимнастика",
+					PatientAfterTraining = 5,
+					TrainingElapsedTime = new TimeSpan(0, 3, 45),
+					TrainingNotes="Все упражнения дались легко, но под конец занятия закружилась голова." 
+				},
 			};
 		}
 
