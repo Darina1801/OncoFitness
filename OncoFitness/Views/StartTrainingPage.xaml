@@ -8,27 +8,74 @@
              Title="Новая тренировка">
 
     <ContentPage.Content >
-        <StackLayout Margin="20,20,20,20" VerticalOptions="Center">
-            <Frame OutlineColor="Black" IsVisible="True" Padding="0" Margin="0" BackgroundColor="Chocolate" HeightRequest="100">
-                <Label Text="Заметки о тренировке" FontSize="Subtitle" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+        <StackLayout Margin="20,20,20,20" 
+                     VerticalOptions="Center">
+            <Frame OutlineColor="Black" 
+                   IsVisible="True" Padding="0" 
+                   Margin="0" 
+                   BackgroundColor="Chocolate" 
+                   HeightRequest="100">
+                <Label Text="Заметки о тренировке" 
+                       FontSize="Subtitle" 
+                       HorizontalTextAlignment="Center" 
+                       VerticalTextAlignment="Center"/>
             </Frame>
-            <ListView ItemsSource="{Binding Items}" RowHeight="200" VerticalScrollBarVisibility="Never">
+            <ListView ItemsSource="{Binding Items}" 
+                      RowHeight="200" 
+                      VerticalScrollBarVisibility="Never">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell Height="200">
-                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand">
-                                <Label Text="{Binding Name}" FontSize="Subtitle"/>
-                                <Frame OutlineColor="Black" IsVisible="True" Padding="0" Margin="0">
-                                <Grid Margin="0">
-                                        <Image Source="{Binding ImagePath}" Aspect="AspectFill"/>
-                                        <StackLayout Padding="3" Orientation="Horizontal" HeightRequest="30" VerticalOptions="Start" HorizontalOptions="End">
-                                            <Button HeightRequest="30" WidthRequest="30"  ImageSource="icon_play.png" BackgroundColor="Transparent"/>
-                                            <Button HeightRequest="30" WidthRequest="30" ImageSource="icon_pause.png" BackgroundColor="Transparent"/>
-                                            <Button HeightRequest="30" WidthRequest="30" ImageSource="icon_stop.png" BackgroundColor="Transparent"/>
-                                            <Button HeightRequest="30" WidthRequest="30" ImageSource="icon_about.png" BackgroundColor="Transparent"/>
+                            <StackLayout VerticalOptions="FillAndExpand" 
+                                         HorizontalOptions="EndAndExpand">
+                                <Label Text="{Binding Name}" 
+                                       FontSize="Subtitle"/>
+                                <Frame OutlineColor="Black" 
+                                       IsVisible="True" 
+                                       Padding="0" 
+                                       Margin="0">
+                                    <Grid Margin="0">
+                                        <Image Source="{Binding ImagePath}" 
+                                               Aspect="AspectFill"/>
+                                        <StackLayout Padding="3" 
+                                                     Orientation="Horizontal" 
+                                                     HeightRequest="30" 
+                                                     VerticalOptions="Start" 
+                                                     HorizontalOptions="End">
+                                            <Button HeightRequest="30" 
+                                                    WidthRequest="30"  
+                                                    ImageSource="icon_play.png" 
+                                                    BackgroundColor="Transparent"/>
+                                            <Button HeightRequest="30" 
+                                                    WidthRequest="30" 
+                                                    ImageSource="icon_pause.png" 
+                                                    BackgroundColor="Transparent"/>
+                                            <Button HeightRequest="30" 
+                                                    WidthRequest="30" 
+                                                    ImageSource="icon_stop.png" 
+                                                    BackgroundColor="Transparent"/>
+                                            <Button HeightRequest="30" 
+                                                    WidthRequest="30" 
+                                                    ImageSource="icon_about.png" 
+                                                    BackgroundColor="Transparent"/>
                                         </StackLayout>
-                                        <Frame OutlineColor="Black" BackgroundColor="LightGray" Opacity="0.7" IsVisible="True" HeightRequest="40" WidthRequest="70" VerticalOptions="End" HorizontalOptions="End" Padding="0" Margin="0">
-                                            <Label Text="{Binding RepeatsCount}" TextColor="Black" FontSize="Subtitle" FontAttributes="Bold" Opacity="1.0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                        <Frame OutlineColor="Black" 
+                                               BackgroundColor="LightGray" 
+                                               Opacity="0.7" 
+                                               IsVisible="True" 
+                                               HeightRequest="40" 
+                                               WidthRequest="70" 
+                                               VerticalOptions="End" 
+                                               HorizontalOptions="End" 
+                                               Padding="0" 
+                                               Margin="0">
+                                            <Label Text="{Binding RepeatsCount}" 
+                                                   TextColor="Black" 
+                                                   FontSize="Subtitle" 
+                                                   FontAttributes="Bold" 
+                                                   Opacity="1.0" 
+                                                   HorizontalTextAlignment="Center" 
+                                                   VerticalTextAlignment="Center"/>
                                         </Frame>
                                     </Grid>
                                 </Frame>
@@ -37,9 +84,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button VerticalOptions="Center" Text="Закончить" Command="{Binding FinishTrainingCommand}"/>
+            <Button VerticalOptions="Center" 
+                    Text="Закончить" 
+                    Command="{Binding FinishTrainingCommand}"/>
         </StackLayout>
     </ContentPage.Content>
-
-    
 </ContentPage>

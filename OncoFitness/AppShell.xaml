@@ -13,41 +13,62 @@
 
     <Shell.Resources>
         <ResourceDictionary>
-            <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.ForegroundColor" Value="White" />
-                <Setter Property="Shell.TitleColor" Value="White" />
-                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
-                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            <Style x:Key="BaseStyle" 
+                   TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" 
+                        Value="{StaticResource Primary}" />
+                <Setter Property="Shell.ForegroundColor" 
+                        Value="White" />
+                <Setter Property="Shell.TitleColor" 
+                        Value="White" />
+                <Setter Property="Shell.DisabledColor" 
+                        Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" 
+                        Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" 
+                        Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarForegroundColor" 
+                        Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" 
+                        Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" 
+                        Value="White"/>
             </Style>
-            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
-            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="TabBar" 
+                   BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" 
+                   BasedOn="{StaticResource BaseStyle}" />
 
             <!--
             Default Styles for all Flyout Items
             https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyoutitem-and-menuitem-style-classes
             -->
-            <Style Class="FlyoutItemLabelStyle" TargetType="Label">
-                <Setter Property="TextColor" Value="White"></Setter>
+            <Style Class="FlyoutItemLabelStyle" 
+                   TargetType="Label">
+                <Setter Property="TextColor" 
+                        Value="White"/>
             </Style>
-            <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
-                <Setter Property="BackgroundColor" Value="LightBlue"></Setter>
+            <Style Class="FlyoutItemLayoutStyle" 
+                   TargetType="Layout" 
+                   ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" 
+                        Value="LightBlue"/>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="White" />
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" 
+                                            Value="White" />
+                                    <Setter TargetName="FlyoutItemLabel" 
+                                            Property="Label.TextColor" 
+                                            Value="{StaticResource Primary}" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" 
+                                            Value="{StaticResource Primary}" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -58,13 +79,17 @@
             <!--
             Custom Style you can apply to any Flyout Item
             -->
-            <Style Class="MenuItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+            <Style Class="MenuItemLayoutStyle" 
+                   TargetType="Layout" 
+                   ApplyToDerivedTypes="True">
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                    <Setter TargetName="FlyoutItemLabel" 
+                                            Property="Label.TextColor" 
+                                            Value="{StaticResource Primary}" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -82,27 +107,37 @@
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
             <Grid BackgroundColor="#B5FFAF"
-              HeightRequest="180">
+                  HeightRequest="180">
                 <Image Aspect="AspectFit"
-                   Source="OncoFitness_Logo.png"/>
+                       Source="OncoFitness_Logo.png"/>
             </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
     
-    <FlyoutItem Title="О программе" Icon="icon_about.png">
-        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+    <FlyoutItem Title="О программе" 
+                Icon="icon_about.png">
+        <ShellContent Route="AboutPage" 
+                      ContentTemplate="{DataTemplate local:AboutPage}"/>
     </FlyoutItem>
-    <FlyoutItem Title="История" Icon="icon_calendar.png">
-        <ShellContent Route="HistoryPage" ContentTemplate="{DataTemplate local:HistoryPage}" />
+    <FlyoutItem Title="История" 
+                Icon="icon_calendar.png">
+        <ShellContent Route="HistoryPage" 
+                      ContentTemplate="{DataTemplate local:HistoryPage}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Частые вопросы" Icon="icon_question.png">
-        <ShellContent Route="QuestionsPage" ContentTemplate="{DataTemplate local:QuestionsPage}" />
+    <FlyoutItem Title="Частые вопросы" 
+                Icon="icon_question.png">
+        <ShellContent Route="QuestionsPage" 
+                      ContentTemplate="{DataTemplate local:QuestionsPage}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Напоминание" Icon="icon_notification.png">
-        <ShellContent Route="NotificationPage" ContentTemplate="{DataTemplate local:NotificationPage}" />
+    <FlyoutItem Title="Напоминание" 
+                Icon="icon_notification.png">
+        <ShellContent Route="NotificationPage" 
+                      ContentTemplate="{DataTemplate local:NotificationPage}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Настройки" Icon="icon_settings.png">
-        <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
+    <FlyoutItem Title="Настройки" 
+                Icon="icon_settings.png">
+        <ShellContent Route="SettingsPage" 
+                      ContentTemplate="{DataTemplate local:SettingsPage}"/>
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to 

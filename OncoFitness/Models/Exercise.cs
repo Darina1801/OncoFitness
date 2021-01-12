@@ -11,5 +11,6 @@ namespace OncoFitness.Models
 		public string ImagePath { get; set; }
 		public int RepeatsCount { get; set; }
 		public string Description { get; set; }
+		public TimeSpan ExerciseElapsedTime { get; set; }
 	}
 }
