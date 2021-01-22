@@ -129,10 +129,10 @@
         <ShellContent Route="QuestionsPage" 
                       ContentTemplate="{DataTemplate local:QuestionsPage}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Напоминание" 
-                Icon="icon_notification.png">
-        <ShellContent Route="NotificationPage" 
-                      ContentTemplate="{DataTemplate local:NotificationPage}"/>
+    <FlyoutItem Title="Свой план" 
+                Icon="icon_plan.png">
+        <ShellContent Route="NewPlanPage" 
+                      ContentTemplate="{DataTemplate local:NewPlanPage}"/>
     </FlyoutItem>
     <FlyoutItem Title="Настройки" 
                 Icon="icon_settings.png">
