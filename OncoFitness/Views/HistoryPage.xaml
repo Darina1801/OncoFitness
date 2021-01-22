@@ -41,7 +41,9 @@
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-                <ContentView Grid.Row="0" Padding="0,10,0,0" VerticalOptions="FillAndExpand">
+                <ContentView Grid.Row="0" 
+                             Padding="0,10,0,0" 
+                             VerticalOptions="FillAndExpand">
                 <controls:Calendar Padding="10,0,10,0"   
                            SelectedBorderWidth="4"   
                            DisabledBorderColor="Black"  
@@ -60,7 +62,10 @@
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
 
-            <RefreshView Grid.Row="2" x:DataType="local:HistoryViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+            <RefreshView Grid.Row="2" 
+                         x:DataType="local:HistoryViewModel" 
+                         Command="{Binding LoadItemsCommand}" 
+                         IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
                 <CollectionView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
                 SelectionMode="None">
