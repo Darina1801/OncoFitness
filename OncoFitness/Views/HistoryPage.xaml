@@ -8,7 +8,9 @@
              Title="{Binding Title}">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="icon_share.png" Text="Поделиться" Command="{Binding AddItemCommand}" />
+        <ToolbarItem IconImageSource="icon_share.png" 
+                     Text="Поделиться" 
+                     Command="{Binding AddItemCommand}" />
     </ContentPage.ToolbarItems>
 
     <!--<ScrollView VerticalOptions="StartAndExpand" >-->
