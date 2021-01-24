@@ -8,24 +8,26 @@
         <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="90"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="120"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
         <ContentView Grid.Row="0" 
                      Padding="0,0,0,0" 
+                     Margin="0,0,0,0"
                      VerticalOptions="FillAndExpand"
                      HorizontalOptions="FillAndExpand">
             <Image Source="Photo_Questions.jpg" 
                        VerticalOptions="Center" 
                        HeightRequest="270" />
         </ContentView>
+            
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="25"/>
                 <RowDefinition Height="1"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
@@ -39,20 +41,27 @@
             <BoxView Grid.Row="1"
                      Grid.ColumnSpan="2"
                      Color="LightGray"/>
-            <Image Grid.Row="2"
-                   Grid.Column="0"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center"
-                   Source="icon_like.png"/>
-            <Image Grid.Row="2"
-                   Grid.Column="1"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center"
-                   Source="icon_dislike.png"/>
+            <Button Grid.Row="2"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    BackgroundColor="Green"
+                    Command="{Binding GoodFeelingCommand}"
+                    ImageSource="icon_like.png"
+                    Margin="10,5,10,5"/>
+            <Button Grid.Row="2"
+                    Grid.Column="1"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    BackgroundColor="Red"
+                    Command="{Binding BadFeelingCommand}"
+                    ImageSource="icon_dislike.png"
+                    Margin="10,5,10,5"/>
         </Grid>
+            
         <Grid Grid.Row="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="25"/>
                 <RowDefinition Height="1"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="1*"/>
@@ -61,42 +70,54 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0"
-                   Grid.ColumnSpan="2" 
-                   FontSize="Subtitle"
-                   Padding="10,0,10,0"
-                   Text="Время"/>
+            <StackLayout Orientation="Horizontal"
+                         Grid.Row="0"
+                         Grid.ColumnSpan="2">
+                <Image Source="icon_time.png"
+                       Margin="10,0,10,0"/>
+                <Label FontSize="Subtitle"
+                       Text="Время"/>
+            </StackLayout>
             <BoxView Grid.Row="1"
                      Grid.ColumnSpan="2"
                      Color="LightGray"/>
             <Label Grid.Row="2" 
                    Grid.Column="0"
-                   VerticalOptions="Center"
+                   VerticalOptions="End"
                    HorizontalOptions="Center"
                    FontSize="Large"
+                   Padding="5,0,5,0"
+                   Margin="0,0,0,0"
                    Text="15:00"/>
             <Label Grid.Row="2"
                    Grid.Column="1"
-                   VerticalOptions="Center"
+                   VerticalOptions="End"
                    HorizontalOptions="Center"
                    FontSize="Large"
+                   Padding="5,0,5,0"
+                   Margin="0,0,0,0"
                    Text="14:00"/>
             <Label Grid.Row="3" 
                    Grid.Column="0"
-                   VerticalOptions="Center"
+                   VerticalOptions="Start"
                    HorizontalOptions="Center"
                    FontSize="Small"
+                   Padding="5,0,5,0"
+                   Margin="0,0,0,0"
                    Text="Ваше время"/>
             <Label Grid.Row="3" 
                    Grid.Column="1"
-                   VerticalOptions="Center"
+                   VerticalOptions="Start"
                    HorizontalOptions="Center"
                    FontSize="Small"
+                   Padding="5,0,5,0"
+                   Margin="0,0,0,0"
                    Text="Чистое время"/>
             </Grid>
+            
         <Grid Grid.Row="3">
             <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="25"/>
                 <RowDefinition Height="1"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -105,7 +126,7 @@
                    Padding="10,0,10,0"
                    Text="Заметки"/>
             <BoxView Grid.Row="1"
-                         Color="LightGray"/>
+                     Color="LightGray"/>
             <Editor Grid.Row="2" 
                     Margin="15, 5, 15, 5"
                     BackgroundColor="Beige"
@@ -116,6 +137,7 @@
         <Button Grid.Row="4" 
                 Margin="20,10,20,10" 
                 Text="Сохранить"
+                HeightRequest="50"
                 Command="{Binding SavetTrainingCommand}"
                 BackgroundColor="{StaticResource Primary}"
                 TextColor="White" />
