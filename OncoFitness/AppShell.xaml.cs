@@ -15,6 +15,7 @@ namespace OncoFitness
 			Routing.RegisterRoute(nameof(NewQuestionPage), typeof(NewQuestionPage));
 			Routing.RegisterRoute(nameof(TrainingDetailPage), typeof(TrainingDetailPage));
 			Routing.RegisterRoute(nameof(StartTrainingPage), typeof(StartTrainingPage));
+			Routing.RegisterRoute(nameof(EndTrainingPage), typeof(EndTrainingPage));
 		}
 
 		private async void OnMenuItemClicked(object sender, EventArgs e)
