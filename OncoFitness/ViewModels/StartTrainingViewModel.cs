@@ -3,7 +3,9 @@ using OncoFitness.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace OncoFitness.ViewModels
@@ -15,7 +17,7 @@ namespace OncoFitness.ViewModels
 
 		public StartTrainingViewModel()
 		{
-			FinishTrainingCommand = new Command(OnStartTrainingPageClicked);
+			FinishTrainingCommand = new Command(async () => await ExecuteFinishTrainingCommand());
 
 			Items = new ObservableCollection<Exercise>()
 			{ 
@@ -27,10 +29,22 @@ namespace OncoFitness.ViewModels
 			};
 		}
 
-		private async void OnStartTrainingPageClicked(object obj)
+		async Task ExecuteFinishTrainingCommand()
 		{
-			// Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-			await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+			IsBusy = true;
+
+			try
+			{
+				await Shell.Current.GoToAsync(nameof(EndTrainingPage));
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex);
+			}
+			finally
+			{
+				IsBusy = false;
+			}
 		}
 	}
 }
