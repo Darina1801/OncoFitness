@@ -14,10 +14,48 @@ namespace OncoFitness.ViewModels
 	public class HistoryViewModel : BaseViewModel
 	{
 		private Training _selectedItem;
+		private DateTime? _date;
+		private ObservableCollection<XamForms.Controls.SpecialDate> attendances;
+
 		public ObservableCollection<Training> Items { get; set; }
 		public Command LoadItemsCommand { get; }
 		public Command StartTrainingCommand { get; }
 		public Command<Training> ItemTapped { get; }
+		public DateTime? Date
+		{
+			get
+			{
+				return _date;
+			}
+			set
+			{
+				_date = value;
+				OnPropertyChanged(nameof(Date));
+			}
+		}
+		public ObservableCollection<XamForms.Controls.SpecialDate> Attendances
+		{
+			get
+			{
+				return attendances;
+			}
+			set
+			{
+				attendances = value;
+				OnPropertyChanged(nameof(Attendances));
+			}
+		}
+		public Command DateChosen
+		{
+			get
+			{
+				return new Command((obj) =>
+				{
+					System.Diagnostics.Debug.WriteLine(obj as DateTime?);
+				});
+			}
+		}
+
 		public HistoryViewModel()
 		{
 			Title = "История";
@@ -27,6 +65,8 @@ namespace OncoFitness.ViewModels
 			StartTrainingCommand = new Command(async () => await ExecuteStartTrainingCommand());
 
 			ItemTapped = new Command<Training>(OnItemSelected);
+
+			Date = DateTime.Now;
 
 			//MyListView.ItemsSource = Items;
 		}
