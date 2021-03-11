@@ -12,12 +12,12 @@ namespace OncoFitness.ViewModels
 {
 	public class StartTrainingViewModel : BaseViewModel
 	{
-		public ObservableCollection<Exercise> Items { get; }
+		public ObservableCollection<ExerciseViewModel> Items { get; }
 		public Command FinishTrainingCommand { get; }
 		public Command StartNewExerciseCommand { get; }
 		public Command PauseExerciseCommand { get; }
 		public Command StopExerciseCommand { get; }
-		public Exercise CurrentExercise { get; set; }
+		public ExerciseViewModel CurrentExercise { get; set; }
 		public bool PlayFinishTrainingButtonsVisibility 
 		{
 			get { return playFinishTrainingButtonsVisibility; }
@@ -51,13 +51,57 @@ namespace OncoFitness.ViewModels
 			PlayFinishTrainingButtonsVisibility = true;
 			PauseStopButtonsVisibility = false;
 
-			Items = new ObservableCollection<Exercise>()
+			Items = new ObservableCollection<ExerciseViewModel>()
 			{ 
-				new Exercise{ Name = "Упражнение 1", ImagePath = "OncoFitness_Logo.png", RepeatsCount = 10 }, 
-				new Exercise{ Name = "Упражнение 2", ImagePath = "OncoFitness_Logo.png", RepeatsCount = 10 },
-				new Exercise{ Name = "Упражнение 3", ImagePath = "OncoFitness_Logo.png", RepeatsCount = 10 },
-				new Exercise{ Name = "Упражнение 4", ImagePath = "OncoFitness_Logo.png", RepeatsCount = 10 },
-				new Exercise{ Name = "Упражнение 5", ImagePath = "OncoFitness_Logo.png", RepeatsCount = 10 },
+				new ExerciseViewModel 
+				{ 
+					Exercise = new Exercise
+					{ 
+						Name = "Упражнение 1", 
+						ImagePath = "OncoFitness_Logo.png", 
+						RepeatsCount = 10 
+					} 
+				},
+
+				new ExerciseViewModel
+				{
+					Exercise = new Exercise
+					{
+						Name = "Упражнение 2",
+						ImagePath = "OncoFitness_Logo.png",
+						RepeatsCount = 10
+					}
+				},
+
+				new ExerciseViewModel
+				{
+					Exercise = new Exercise
+					{
+						Name = "Упражнение 3",
+						ImagePath = "OncoFitness_Logo.png",
+						RepeatsCount = 10
+					}
+				},
+
+				new ExerciseViewModel
+				{
+					Exercise = new Exercise
+					{
+						Name = "Упражнение 4",
+						ImagePath = "OncoFitness_Logo.png",
+						RepeatsCount = 10
+					}
+				},
+
+				new ExerciseViewModel
+				{
+					Exercise = new Exercise
+					{
+						Name = "Упражнение 5",
+						ImagePath = "OncoFitness_Logo.png",
+						RepeatsCount = 10
+					}
+				},
 			};
 		}
 
@@ -91,6 +135,8 @@ namespace OncoFitness.ViewModels
 					return;
 				}
 				CurrentExercise = Items[currentExerciseNumber];
+				CurrentExercise.BorderColor = Color.Blue;
+				CurrentExercise.ThickBorder = CurrentExercise.BorderColor;
 				currentExerciseNumber++;
 				PlayFinishTrainingButtonsVisibility = false;
 				PauseStopButtonsVisibility = true;
@@ -113,6 +159,8 @@ namespace OncoFitness.ViewModels
 
 			try
 			{
+				CurrentExercise.BorderColor = Color.Orange;
+				CurrentExercise.ThickBorder = CurrentExercise.BorderColor;
 				//Implement PauseTimer call
 				//await Shell.Current.GoToAsync(nameof(EndTrainingPage));
 			}
@@ -132,6 +180,8 @@ namespace OncoFitness.ViewModels
 
 			try
 			{
+				CurrentExercise.BorderColor = Color.LightGreen;
+				CurrentExercise.ThickBorder = Color.Transparent;
 				PlayFinishTrainingButtonsVisibility = true;
 				PauseStopButtonsVisibility = false;
 				//Implement StopTimer call
