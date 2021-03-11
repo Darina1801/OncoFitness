@@ -13,9 +13,9 @@
             <Frame OutlineColor="Black" 
                    IsVisible="True" Padding="0" 
                    Margin="0" 
-                   BackgroundColor="Chocolate" 
+                   BackgroundColor="#B5FFAF"
                    HeightRequest="100">
-                <Label Text="Заметки о тренировке" 
+                <Label Text="Цель тренировки" 
                        FontSize="Subtitle" 
                        HorizontalTextAlignment="Center" 
                        VerticalTextAlignment="Center"/>
@@ -84,9 +84,48 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button VerticalOptions="Center" 
-                    Text="Закончить" 
-                    Command="{Binding FinishTrainingCommand}"/>
+            <Grid HorizontalOptions="FillAndExpand" 
+                  VerticalOptions="StartAndExpand"
+                  IsVisible="{Binding PlayFinishTrainingButtonsVisibility}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0"
+                        Margin="0,10,4,0" 
+                        VerticalOptions="Center" 
+                        HeightRequest="90"
+                        Text="Начать" 
+                        ImageSource="icon_play.png"
+                        Command="{Binding StartNewExerciseCommand}"/>
+                <Button Grid.Column="1"
+                        Margin="4,10,0,0" 
+                        VerticalOptions="Center" 
+                        Text="Закончить" 
+                        ImageSource="icon_close.png"
+                        Command="{Binding FinishTrainingCommand}"/>
+            </Grid>
+            <Grid HorizontalOptions="FillAndExpand" 
+                  VerticalOptions="StartAndExpand"
+                  IsVisible="{Binding PauseStopButtonsVisibility}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0"
+                        Margin="0,10,4,0" 
+                        VerticalOptions="Center" 
+                        HeightRequest="90"
+                        Text="Пауза" 
+                        ImageSource="icon_pause.png"
+                        Command="{Binding PauseExerciseCommand}"/>
+                <Button Grid.Column="1"
+                        Margin="4,10,0,0" 
+                        VerticalOptions="Center" 
+                        Text="Стоп" 
+                        ImageSource="icon_stop.png"
+                        Command="{Binding StopExerciseCommand}"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
