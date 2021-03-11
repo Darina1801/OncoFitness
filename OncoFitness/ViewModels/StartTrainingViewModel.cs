@@ -17,7 +17,13 @@ namespace OncoFitness.ViewModels
 		public Command StartNewExerciseCommand { get; }
 		public Command PauseExerciseCommand { get; }
 		public Command StopExerciseCommand { get; }
-		public ExerciseViewModel CurrentExercise { get; set; }
+		public ExerciseViewModel CurrentExercise 
+		{
+			get { return currentExercise; }
+			set { currentExercise = value;
+				OnPropertyChanged();
+			} 
+		}
 		public bool PlayFinishTrainingButtonsVisibility 
 		{
 			get { return playFinishTrainingButtonsVisibility; }
@@ -37,6 +43,7 @@ namespace OncoFitness.ViewModels
 			}
 		}
 
+		private ExerciseViewModel currentExercise;
 		private int currentExerciseNumber = 0;
 		private bool playFinishTrainingButtonsVisibility;
 		private bool pauseStopButtonsVisibility;

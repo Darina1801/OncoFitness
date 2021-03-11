@@ -22,7 +22,8 @@
             </Frame>
             <ListView ItemsSource="{Binding Items}" 
                       RowHeight="200" 
-                      VerticalScrollBarVisibility="Never">
+                      VerticalScrollBarVisibility="Never"
+                      SelectedItem="{Binding CurrentExercise, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell Height="200">
