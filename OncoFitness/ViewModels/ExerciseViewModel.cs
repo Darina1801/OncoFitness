@@ -27,6 +27,18 @@ namespace OncoFitness.ViewModels
 				OnPropertyChanged();
 			}
 		}
+		
+		private bool isFinished;
+
+		public bool IsFinished
+		{
+			get { return isFinished; }
+			set
+			{
+				isFinished = value;
+				OnPropertyChanged();
+			}
+		}
 
 		private Color borderColor;
 		private Color thickBorder;
@@ -35,6 +47,7 @@ namespace OncoFitness.ViewModels
 		{
 			borderColor = Color.Black;
 			thickBorder = Color.Transparent;
+			isFinished = false;
 		}
 	}
 }

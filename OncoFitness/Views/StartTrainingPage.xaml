@@ -79,8 +79,7 @@
                 </ListView.ItemTemplate>
             </ListView>
             <Grid HorizontalOptions="FillAndExpand" 
-                  VerticalOptions="StartAndExpand"
-                  IsVisible="{Binding PlayFinishTrainingButtonsVisibility}">
+                  VerticalOptions="StartAndExpand">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -91,34 +90,30 @@
                         HeightRequest="90"
                         Text="Начать" 
                         ImageSource="icon_play.png"
-                        Command="{Binding StartNewExerciseCommand}"/>
-                <Button Grid.Column="1"
-                        Margin="4,10,0,0" 
-                        VerticalOptions="Center" 
-                        Text="Закончить" 
-                        ImageSource="icon_close.png"
-                        Command="{Binding FinishTrainingCommand}"/>
-            </Grid>
-            <Grid HorizontalOptions="FillAndExpand" 
-                  VerticalOptions="StartAndExpand"
-                  IsVisible="{Binding PauseStopButtonsVisibility}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                        Command="{Binding StartNewExerciseCommand}"
+                        IsVisible="{Binding PlayVisibility}"/>
                 <Button Grid.Column="0"
                         Margin="0,10,4,0" 
                         VerticalOptions="Center" 
                         HeightRequest="90"
                         Text="Пауза" 
                         ImageSource="icon_pause.png"
-                        Command="{Binding PauseExerciseCommand}"/>
+                        Command="{Binding PauseExerciseCommand}"
+                        IsVisible="{Binding PauseVisibility}"/>
+                <Button Grid.Column="1"
+                        Margin="4,10,0,0" 
+                        VerticalOptions="Center" 
+                        Text="Закончить" 
+                        ImageSource="icon_close.png"
+                        Command="{Binding FinishTrainingCommand}"
+                        IsVisible="{Binding FinishTrainingVisibility}"/>
                 <Button Grid.Column="1"
                         Margin="4,10,0,0" 
                         VerticalOptions="Center" 
                         Text="Стоп" 
                         ImageSource="icon_stop.png"
-                        Command="{Binding StopExerciseCommand}"/>
+                        Command="{Binding StopExerciseCommand}"
+                        IsVisible="{Binding StopVisibility}"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

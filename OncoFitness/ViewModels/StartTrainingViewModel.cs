@@ -24,29 +24,49 @@ namespace OncoFitness.ViewModels
 				OnPropertyChanged();
 			} 
 		}
-		public bool PlayFinishTrainingButtonsVisibility 
+		public bool PlayVisibility 
 		{
-			get { return playFinishTrainingButtonsVisibility; }
+			get { return playVisibility; }
 			set 
 			{ 
-				playFinishTrainingButtonsVisibility = value;
+				playVisibility = value;
 				OnPropertyChanged(); 
 			} 
 		}
-		public bool PauseStopButtonsVisibility
+		public bool StopVisibility
 		{
-			get { return pauseStopButtonsVisibility; }
+			get { return stopVisibility; }
 			set
 			{
-				pauseStopButtonsVisibility = value;
+				stopVisibility = value;
+				OnPropertyChanged();
+			}
+		}
+		public bool PauseVisibility
+		{
+			get { return pauseVisibility; }
+			set
+			{
+				pauseVisibility = value;
+				OnPropertyChanged();
+			}
+		}
+		public bool FinishTrainingVisibility
+		{
+			get { return finishTrainingVisibility; }
+			set
+			{
+				finishTrainingVisibility = value;
 				OnPropertyChanged();
 			}
 		}
 
 		private ExerciseViewModel currentExercise;
 		private int currentExerciseNumber = 0;
-		private bool playFinishTrainingButtonsVisibility;
-		private bool pauseStopButtonsVisibility;
+		private bool playVisibility;
+		private bool stopVisibility;
+		private bool pauseVisibility;
+		private bool finishTrainingVisibility;
 
 		public StartTrainingViewModel()
 		{
@@ -55,8 +75,10 @@ namespace OncoFitness.ViewModels
 			PauseExerciseCommand = new Command(async () => await ExecutePauseExerciseCommand());
 			StopExerciseCommand = new Command(async () => await ExecuteStopExerciseCommand()); 
 
-			PlayFinishTrainingButtonsVisibility = true;
-			PauseStopButtonsVisibility = false;
+			PlayVisibility = true;
+			StopVisibility = false;
+			PauseVisibility = false;
+			FinishTrainingVisibility = true;
 
 			Items = new ObservableCollection<ExerciseViewModel>()
 			{ 
@@ -141,12 +163,30 @@ namespace OncoFitness.ViewModels
 					IsBusy = false;
 					return;
 				}
-				CurrentExercise = Items[currentExerciseNumber];
-				CurrentExercise.BorderColor = Color.Blue;
-				CurrentExercise.ThickBorder = CurrentExercise.BorderColor;
-				currentExerciseNumber++;
-				PlayFinishTrainingButtonsVisibility = false;
-				PauseStopButtonsVisibility = true;
+
+				if (CurrentExercise != null && !CurrentExercise.IsFinished)
+				{
+					CurrentExercise.BorderColor = Color.Blue;
+					CurrentExercise.ThickBorder = CurrentExercise.BorderColor;
+					IsBusy = false;
+					PlayVisibility = false;
+					StopVisibility = true;
+					PauseVisibility = true;
+					FinishTrainingVisibility = false;
+					return;
+				}
+				else
+				{
+					CurrentExercise = Items[currentExerciseNumber];
+					CurrentExercise.BorderColor = Color.Blue;
+					CurrentExercise.ThickBorder = CurrentExercise.BorderColor;
+					currentExerciseNumber++;
+					PlayVisibility = false;
+					StopVisibility = true; 
+					PauseVisibility = true;
+					FinishTrainingVisibility = false; 
+				}
+				
 				//Implement StartTimer call
 				//await Shell.Current.GoToAsync(nameof(EndTrainingPage));
 			}
@@ -168,6 +208,10 @@ namespace OncoFitness.ViewModels
 			{
 				CurrentExercise.BorderColor = Color.Orange;
 				CurrentExercise.ThickBorder = CurrentExercise.BorderColor;
+				PauseVisibility = false;
+				PlayVisibility = true;
+				StopVisibility = true;
+				FinishTrainingVisibility = false;
 				//Implement PauseTimer call
 				//await Shell.Current.GoToAsync(nameof(EndTrainingPage));
 			}
@@ -189,8 +233,11 @@ namespace OncoFitness.ViewModels
 			{
 				CurrentExercise.BorderColor = Color.LightGreen;
 				CurrentExercise.ThickBorder = Color.Transparent;
-				PlayFinishTrainingButtonsVisibility = true;
-				PauseStopButtonsVisibility = false;
+				PlayVisibility = true;
+				StopVisibility = false;
+				FinishTrainingVisibility = true;
+				PauseVisibility = false;
+				CurrentExercise.IsFinished = true;
 				//Implement StopTimer call
 				//await Shell.Current.GoToAsync(nameof(EndTrainingPage));
 			}
