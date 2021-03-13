@@ -68,7 +68,7 @@ namespace OncoFitness.ViewModels
 
 		public void StartExerciseDateTime()
 		{
-			ExerciseTimer.StartDateTime = DateTime.Now;
+			ExerciseTimer.DisplayedTimerDateTime = new TimeSpan();
 		}
 	}
 }

@@ -12,6 +12,7 @@ namespace OncoFitness.ViewModels
         private TimeSpan displayedTimerDateTime;
         private DateTime startDateTime;
         private bool stopTimer;
+        private bool pauseTimer;
         
         public DateTime StartDateTime
         {
@@ -23,18 +24,27 @@ namespace OncoFitness.ViewModels
             get { return stopTimer; }
             set { stopTimer = value; }
         }
+        public bool PauseTimer
+        {
+            get { return pauseTimer; }
+            set { pauseTimer = value; }
+        }
 
         public TimerViewModel()
         {
             DisplayedTimerDateTime = new TimeSpan();
             stopTimer = false;
+            pauseTimer = false;
 
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
                 if (!StopTimer)
                 {
-                    //this.DisplayedTimerDateTime = DateTime.Now - StartDateTime;
-                    this.DisplayedTimerDateTime.Add(new TimeSpan (0, 0, 1));
+                    if (!PauseTimer)
+                    {
+                        this.DisplayedTimerDateTime = DisplayedTimerDateTime.Add(new TimeSpan(0, 0, 1));
+                    }
+
                     return true;
                 }
                 else return false;

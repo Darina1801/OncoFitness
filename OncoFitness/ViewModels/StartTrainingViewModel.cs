@@ -173,6 +173,7 @@ namespace OncoFitness.ViewModels
 					StopVisibility = true;
 					PauseVisibility = true;
 					FinishTrainingVisibility = false;
+					CurrentExercise.ExerciseTimer.PauseTimer = false;
 					return;
 				}
 				else
@@ -187,6 +188,7 @@ namespace OncoFitness.ViewModels
 					FinishTrainingVisibility = false;
 					CurrentExercise.StartExerciseDateTime();
 					CurrentExercise.TimerVisibility = true;
+					CurrentExercise.ExerciseTimer.PauseTimer = false;
 				}
 				
 				//Implement StartTimer call
@@ -214,6 +216,7 @@ namespace OncoFitness.ViewModels
 				PlayVisibility = true;
 				StopVisibility = true;
 				FinishTrainingVisibility = false;
+				CurrentExercise.ExerciseTimer.PauseTimer = true;
 				//Implement PauseTimer call
 				//await Shell.Current.GoToAsync(nameof(EndTrainingPage));
 			}
