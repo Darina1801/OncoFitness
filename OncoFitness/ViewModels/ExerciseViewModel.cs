@@ -9,6 +9,8 @@ namespace OncoFitness.ViewModels
 	public class ExerciseViewModel : BaseViewModel
 	{
 		public Exercise Exercise { get; set; }
+		public TimerViewModel ExerciseTimer { get; set; }
+
 		public Color BorderColor 
 		{
 			get { return borderColor; }
@@ -27,7 +29,19 @@ namespace OncoFitness.ViewModels
 				OnPropertyChanged();
 			}
 		}
-		
+
+		private bool timerVisibility;
+
+		public bool TimerVisibility
+		{
+			get { return timerVisibility; }
+			set
+			{
+				timerVisibility = value;
+				OnPropertyChanged();
+			}
+		}
+
 		private bool isFinished;
 
 		public bool IsFinished
@@ -48,6 +62,13 @@ namespace OncoFitness.ViewModels
 			borderColor = Color.Black;
 			thickBorder = Color.Transparent;
 			isFinished = false;
+			timerVisibility = false;
+			ExerciseTimer = new TimerViewModel();
+		}
+
+		public void StartExerciseDateTime()
+		{
+			ExerciseTimer.StartDateTime = DateTime.Now;
 		}
 	}
 }
