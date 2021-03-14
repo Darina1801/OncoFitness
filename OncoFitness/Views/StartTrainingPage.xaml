@@ -11,14 +11,38 @@
         <StackLayout Margin="20,20,20,20" 
                      VerticalOptions="Center">
             <Frame OutlineColor="Black" 
-                   IsVisible="True" Padding="0" 
+                   IsVisible="{Binding TrainingGoalVisibility}" 
+                   Padding="0" 
                    Margin="0" 
                    BackgroundColor="#B5FFAF"
                    HeightRequest="100">
-                <Label Text="Цель тренировки" 
-                       FontSize="Subtitle" 
-                       HorizontalTextAlignment="Center" 
-                       VerticalTextAlignment="Center"/>
+                    <Label Text="{Binding TrainingGoal}" 
+                           FontSize="Subtitle" 
+                           HorizontalTextAlignment="Center" 
+                           VerticalTextAlignment="Center"/>
+            </Frame>
+            <Frame OutlineColor="Black" 
+                   IsVisible="{Binding TotalTrainingTimerVisibility}" 
+                   Padding="0" 
+                   Margin="0" 
+                   BackgroundColor="#B5FFAF"
+                   HeightRequest="150">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Text="{Binding TrainingGoal}" 
+                           FontSize="Subtitle" 
+                           HorizontalTextAlignment="Center" 
+                           VerticalTextAlignment="Center"
+                           Grid.Row="0"/>
+                    <Label Text="{Binding TotalTrainingTimer.DisplayedTimerDateTime, StringFormat='{}{0:hh\\:mm\\:ss}'}" 
+                           FontSize="Subtitle" 
+                           HorizontalTextAlignment="Center" 
+                           VerticalTextAlignment="Center"
+                           Grid.Row="1"/>
+                </Grid>
             </Frame>
             <ListView ItemsSource="{Binding Items}" 
                       RowHeight="200" 
