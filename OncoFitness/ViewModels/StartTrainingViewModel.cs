@@ -10,26 +10,48 @@ namespace OncoFitness.ViewModels
 {
 	public class StartTrainingViewModel : BaseViewModel
 	{
+		#region Fields 
+
+		private string trainingGoal;
+		private ExerciseViewModel currentExercise;
+		private TimerViewModel totalTrainingTimer;
+		private int currentExerciseNumber = 0;
+		private bool trainingGoalVisibility;
+		private bool totalTrainingTimerVisibility;
+		private bool playVisibility;
+		private bool stopVisibility;
+		private bool pauseVisibility;
+		private bool finishTrainingVisibility;
+
+		#endregion
+
+		#region Properties
+
 		public ObservableCollection<ExerciseViewModel> Items { get; }
 		public Command FinishTrainingCommand { get; }
 		public Command StartNewExerciseCommand { get; }
 		public Command PauseExerciseCommand { get; }
 		public Command StopExerciseCommand { get; }
-		public ExerciseViewModel CurrentExercise 
+		public string TrainingGoal
+		{
+			get { return trainingGoal; }
+			set { trainingGoal = value; }
+		}
+		public ExerciseViewModel CurrentExercise
 		{
 			get { return currentExercise; }
 			set { currentExercise = value;
 				OnPropertyChanged();
-			} 
+			}
 		}
-		public bool PlayVisibility 
+		public bool PlayVisibility
 		{
 			get { return playVisibility; }
-			set 
-			{ 
+			set
+			{
 				playVisibility = value;
-				OnPropertyChanged(); 
-			} 
+				OnPropertyChanged();
+			}
 		}
 		public bool StopVisibility
 		{
@@ -58,16 +80,44 @@ namespace OncoFitness.ViewModels
 				OnPropertyChanged();
 			}
 		}
-		
-		private ExerciseViewModel currentExercise;
-		private int currentExerciseNumber = 0;
-		private bool playVisibility;
-		private bool stopVisibility;
-		private bool pauseVisibility;
-		private bool finishTrainingVisibility;
+		public TimerViewModel TotalTrainingTimer
+		{
+			get { return totalTrainingTimer; }
+			set
+			{
+				totalTrainingTimer = value;
+				OnPropertyChanged();
+			}
+		}
+		public bool TotalTrainingTimerVisibility 
+		{
+			get {return totalTrainingTimerVisibility; }
+			set 
+			{
+				totalTrainingTimerVisibility = value;
+				OnPropertyChanged();
+			}
+		}
+		public bool TrainingGoalVisibility
+		{
+			get { return trainingGoalVisibility; }
+			set 
+			{
+				trainingGoalVisibility = value;
+				OnPropertyChanged();
+			}
+		}
+
+		#endregion
+
+		#region Constructor
 
 		public StartTrainingViewModel()
 		{
+			trainingGoal = "Цель тренировки";
+			trainingGoalVisibility = true;
+			totalTrainingTimerVisibility = false;
+
 			FinishTrainingCommand = new Command(async () => await ExecuteFinishTrainingCommand());
 			StartNewExerciseCommand = new Command(async () => await ExecuteStartNewExerciseCommand());
 			PauseExerciseCommand = new Command(async () => await ExecutePauseExerciseCommand());
@@ -132,12 +182,17 @@ namespace OncoFitness.ViewModels
 			};
 		}
 
+		#endregion
+
+		#region Methods
+
 		async Task ExecuteFinishTrainingCommand()
 		{
 			IsBusy = true;
 
 			try
 			{
+				TotalTrainingTimer.StopTimer = true;
 				await Shell.Current.GoToAsync(nameof(EndTrainingPage));
 			}
 			catch (Exception ex)
@@ -162,6 +217,7 @@ namespace OncoFitness.ViewModels
 					return;
 				}
 
+				//Start after pause
 				if (CurrentExercise != null && !CurrentExercise.IsFinished)
 				{
 					CurrentExercise.BorderColor = Color.Blue;
@@ -174,14 +230,21 @@ namespace OncoFitness.ViewModels
 					CurrentExercise.ExerciseTimer.PauseTimer = false;
 					return;
 				}
+				//First exercise start
 				else
 				{
+					if (CurrentExercise == null)
+					{
+						TotalTrainingTimer = new TimerViewModel();
+						TrainingGoalVisibility = false;
+						TotalTrainingTimerVisibility = true;
+					}
 					CurrentExercise = Items[currentExerciseNumber];
 					CurrentExercise.BorderColor = Color.Blue;
 					CurrentExercise.ThickBorder = CurrentExercise.BorderColor;
 					currentExerciseNumber++;
 					PlayVisibility = false;
-					StopVisibility = true; 
+					StopVisibility = true;
 					PauseVisibility = true;
 					FinishTrainingVisibility = false;
 					CurrentExercise.StartExerciseDateTime();
@@ -254,5 +317,7 @@ namespace OncoFitness.ViewModels
 				IsBusy = false;
 			}
 		}
+
+		#endregion
 	}
 }

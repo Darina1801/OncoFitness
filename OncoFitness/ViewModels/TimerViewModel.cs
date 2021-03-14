@@ -5,11 +5,33 @@ namespace OncoFitness.ViewModels
 {
 	public class TimerViewModel : BaseViewModel
 	{
-        private TimeSpan displayedTimerDateTime;
+		#region Fields
+
+		private TimeSpan displayedTimerDateTime;
         private DateTime startDateTime;
         private bool stopTimer;
         private bool pauseTimer;
-        
+
+        #endregion
+
+        #region Properties
+
+        public TimeSpan DisplayedTimerDateTime
+        {
+            get
+            {
+                return displayedTimerDateTime;
+            }
+
+            set
+            {
+                if (value != displayedTimerDateTime)
+                {
+                    displayedTimerDateTime = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         public DateTime StartDateTime
         {
             get { return startDateTime; }
@@ -26,7 +48,11 @@ namespace OncoFitness.ViewModels
             set { pauseTimer = value; }
         }
 
-        public TimerViewModel()
+		#endregion
+
+		#region Constructor
+
+		public TimerViewModel()
         {
             DisplayedTimerDateTime = new TimeSpan();
             stopTimer = false;
@@ -47,21 +73,6 @@ namespace OncoFitness.ViewModels
             });
         }
 
-        public TimeSpan DisplayedTimerDateTime
-        {
-            get
-            {
-                return displayedTimerDateTime;
-            }
-
-            set
-            {
-                if (value != displayedTimerDateTime)
-                {
-                    displayedTimerDateTime = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+		#endregion
     }
 }
