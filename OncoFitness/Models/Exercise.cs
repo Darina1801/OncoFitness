@@ -7,8 +7,8 @@ namespace OncoFitness.Models
 	public class Exercise
 	{
 		#region Properties
-
-		public string Id { get; set; }
+		//[Primary]
+		public int Id { get; set; }
 		public string Name { get; set; }
 		public string ImagePath { get; set; }
 		public int RepeatsCount { get; set; }

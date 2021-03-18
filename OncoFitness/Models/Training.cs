@@ -9,7 +9,7 @@ namespace OncoFitness.Models
 	{
 		#region Properties
 
-		public string Id { get; set; }
+		public int Id { get; set; }
 		public string TrainingName { get; set; }
 		public string TrainingGoal { get; set; }
 		public DateTime TrainingDateTime { get; set; }
