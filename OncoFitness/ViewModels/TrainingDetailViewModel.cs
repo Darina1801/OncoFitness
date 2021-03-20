@@ -69,7 +69,7 @@ namespace OncoFitness.ViewModels
 			try
 			{
 				var item = await TrainingDataStore.GetItemAsync(itemId);
-				Id = item.Id;
+				Id = item.TrainingId;
 				TrainingType = item.TrainingType;
 				TrainingNotes = item.TrainingNotes;
 			}

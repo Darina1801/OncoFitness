@@ -1,13 +1,21 @@
-﻿using System;
+﻿using SQLite;
+using System;
 
 namespace OncoFitness.Models
 {
+	[Table("Question_And_Answer")]
 	public class QuestionAndAnswer
 	{
 		#region Properties
-		public int Id { get; set; }
-		public string Question { get; set; }
-		public string Answer { get; set; }
+
+		[PrimaryKey, NotNull, Unique, Column("QA_id")]
+		public string QAId { get; set; }
+
+		[NotNull, Unique, Column("QA_question")]
+		public string QAQuestion { get; set; }
+
+		[NotNull, Column("QA_answer")]
+		public string QAAnswer { get; set; }
 
 		#endregion
 	}

@@ -134,9 +134,9 @@ namespace OncoFitness.ViewModels
 				{ 
 					Exercise = new Exercise
 					{ 
-						Name = "Упражнение 1", 
-						ImagePath = "OncoFitness_Logo.png", 
-						RepeatsCount = 10 
+						ExerciseName = "Упражнение 1", 
+						ExeciseImagePath = "OncoFitness_Logo.png", 
+						ExerciseRepeatsCount = 10 
 					} 
 				},
 
@@ -144,9 +144,9 @@ namespace OncoFitness.ViewModels
 				{
 					Exercise = new Exercise
 					{
-						Name = "Упражнение 2",
-						ImagePath = "OncoFitness_Logo.png",
-						RepeatsCount = 10
+						ExerciseName = "Упражнение 2",
+						ExeciseImagePath = "OncoFitness_Logo.png",
+						ExerciseRepeatsCount = 10
 					}
 				},
 
@@ -154,9 +154,9 @@ namespace OncoFitness.ViewModels
 				{
 					Exercise = new Exercise
 					{
-						Name = "Упражнение 3",
-						ImagePath = "OncoFitness_Logo.png",
-						RepeatsCount = 10
+						ExerciseName = "Упражнение 3",
+						ExeciseImagePath = "OncoFitness_Logo.png",
+						ExerciseRepeatsCount = 10
 					}
 				},
 
@@ -164,9 +164,9 @@ namespace OncoFitness.ViewModels
 				{
 					Exercise = new Exercise
 					{
-						Name = "Упражнение 4",
-						ImagePath = "OncoFitness_Logo.png",
-						RepeatsCount = 10
+						ExerciseName = "Упражнение 4",
+						ExeciseImagePath = "OncoFitness_Logo.png",
+						ExerciseRepeatsCount = 10
 					}
 				},
 
@@ -174,9 +174,9 @@ namespace OncoFitness.ViewModels
 				{
 					Exercise = new Exercise
 					{
-						Name = "Упражнение 5",
-						ImagePath = "OncoFitness_Logo.png",
-						RepeatsCount = 10
+						ExerciseName = "Упражнение 5",
+						ExeciseImagePath = "OncoFitness_Logo.png",
+						ExerciseRepeatsCount = 10
 					}
 				},
 			};

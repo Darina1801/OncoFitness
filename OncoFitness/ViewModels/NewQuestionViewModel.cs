@@ -52,9 +52,9 @@ namespace OncoFitness.ViewModels
 		{
 			QuestionAndAnswer newItem = new QuestionAndAnswer()
 			{
-				Id = Guid.NewGuid().ToString(),
-				Question = Question,
-				Answer = Description
+				QAId = Guid.NewGuid().ToString(),
+				QAQuestion = Question,
+				QAAnswer = Description
 			};
 
 			await QAndADataStore.AddItemAsync(newItem);

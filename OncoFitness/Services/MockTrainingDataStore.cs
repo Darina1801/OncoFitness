@@ -17,7 +17,7 @@ namespace OncoFitness.Services
 			{
 				new Training 
 				{ 
-					Id = Guid.NewGuid().ToString(), 
+					TrainingId = Guid.NewGuid().ToString(), 
 					TrainingDateTime = DateTime.Now,
 					TrainingType = "Равновесие", 
 					PatientAfterTraining = 5, 
@@ -27,7 +27,7 @@ namespace OncoFitness.Services
 				},
 				new Training 
 				{ 
-					Id = Guid.NewGuid().ToString(),
+					TrainingId = Guid.NewGuid().ToString(),
 					TrainingDateTime = DateTime.Now,
 					TrainingType = "Укрепить ноги",
 					PatientAfterTraining = 5,
@@ -36,7 +36,7 @@ namespace OncoFitness.Services
 				},
 				new Training 
 				{ 
-					Id = Guid.NewGuid().ToString(),
+					TrainingId = Guid.NewGuid().ToString(),
 					TrainingDateTime = DateTime.Now,
 					TrainingType = "Укрепить руки",
 					PatientAfterTraining = 5,
@@ -45,7 +45,7 @@ namespace OncoFitness.Services
 				},
 				new Training 
 				{ 
-					Id = Guid.NewGuid().ToString(),
+					TrainingId = Guid.NewGuid().ToString(),
 					TrainingDateTime = DateTime.Now,
 					TrainingType = "Укрепить таз",
 					PatientAfterTraining = 5,
@@ -54,7 +54,7 @@ namespace OncoFitness.Services
 				},
 				new Training 
 				{ 
-					Id = Guid.NewGuid().ToString(),
+					TrainingId = Guid.NewGuid().ToString(),
 					TrainingDateTime = DateTime.Now,
 					TrainingType = "Укрепить пресс",
 					PatientAfterTraining = 5,
@@ -63,7 +63,7 @@ namespace OncoFitness.Services
 				},
 				new Training 
 				{ 
-					Id = Guid.NewGuid().ToString(),
+					TrainingId = Guid.NewGuid().ToString(),
 					TrainingDateTime = DateTime.Now,
 					TrainingType = "Дыхательная гимнастика",
 					PatientAfterTraining = 5,
@@ -82,7 +82,7 @@ namespace OncoFitness.Services
 
 		public async Task<bool> DeleteItemAsync(string id)
 		{
-			var oldItem = items.Where((Training arg) => arg.Id == id).FirstOrDefault();
+			var oldItem = items.Where((Training arg) => arg.TrainingId == id).FirstOrDefault();
 			items.Remove(oldItem);
 
 			return await Task.FromResult(true);
@@ -90,7 +90,7 @@ namespace OncoFitness.Services
 
 		public async Task<Training> GetItemAsync(string id)
 		{
-			return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
+			return await Task.FromResult(items.FirstOrDefault(s => s.TrainingId == id));
 		}
 
 		public async Task<IEnumerable<Training>> GetItemsAsync(bool forceRefresh = false)
@@ -100,7 +100,7 @@ namespace OncoFitness.Services
 
 		public async Task<bool> UpdateItemAsync(Training item)
 		{
-			var oldItem = items.Where((Training arg) => arg.Id == item.Id).FirstOrDefault();
+			var oldItem = items.Where((Training arg) => arg.TrainingId == item.TrainingId).FirstOrDefault();
 			items.Remove(oldItem);
 			items.Add(item);
 

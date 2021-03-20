@@ -78,7 +78,7 @@ namespace OncoFitness.ViewModels
 				return;
 
 			// This will push the QuestionDetailPage onto the navigation stack
-			await Shell.Current.GoToAsync($"{nameof(QuestionDetailPage)}?{nameof(QuestionDetailViewModel.ItemId)}={item.Id}");
+			await Shell.Current.GoToAsync($"{nameof(QuestionDetailPage)}?{nameof(QuestionDetailViewModel.ItemId)}={item.QAId}");
 		}
 	}
 }

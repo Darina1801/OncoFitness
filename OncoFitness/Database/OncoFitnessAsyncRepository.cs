@@ -46,7 +46,7 @@ namespace OncoFitness.Database
         {
             return await database.GetAsync<Exercise>(id);
         }
-        public async Task<QuestionAndAnswer> GetQAIdItemAsync(int id)
+        public async Task<QuestionAndAnswer> GetQAIdItemAsync(string id)
         {
             return await database.GetAsync<QuestionAndAnswer>(id);
         }
@@ -78,10 +78,10 @@ namespace OncoFitness.Database
 
 		public async Task<int> SaveExerciseItemAsync(Exercise item)
         {
-            if (item.Id != 0)
+            if (item.ExerciseId != 0)
             {
                 await database.UpdateAsync(item);
-                return item.Id;
+                return item.ExerciseId;
             }
             else
             {
@@ -90,10 +90,10 @@ namespace OncoFitness.Database
         }
         public async Task<int> SaveItemAsync(QuestionAndAnswer item)
         {
-            if (item.Id != 0)
+            if (item.QAId != 0)
             {
                 await database.UpdateAsync(item);
-                return item.Id;
+                return item.QAId;
             }
             else
             {
@@ -102,10 +102,10 @@ namespace OncoFitness.Database
         }
         public async Task<int> SaveItemAsync(Training item)
         {
-            if (item.Id != 0)
+            if (item.TrainingId != 0)
             {
                 await database.UpdateAsync(item);
-                return item.Id;
+                return item.TrainingId;
             }
             else
             {

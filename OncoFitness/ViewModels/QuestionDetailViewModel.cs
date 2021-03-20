@@ -44,9 +44,9 @@ namespace OncoFitness.ViewModels
 			try
 			{
 				var item = await QAndADataStore.GetItemAsync(itemId);
-				Id = item.Id;
-				Question = item.Question;
-				Answer = item.Answer;
+				Id = item.QAId;
+				Question = item.QAQuestion;
+				Answer = item.QAAnswer;
 			}
 			catch (Exception)
 			{

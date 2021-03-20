@@ -14,12 +14,12 @@ namespace OncoFitness.Services
 		{
 			items = new List<QuestionAndAnswer>()
 			{
-				new QuestionAndAnswer { Id = Guid.NewGuid().ToString(), Question = "Что?", Answer="Ответ на вопрос." },
-				new QuestionAndAnswer { Id = Guid.NewGuid().ToString(), Question = "Где?", Answer="Ответ на вопрос." },
-				new QuestionAndAnswer { Id = Guid.NewGuid().ToString(), Question = "Когда?", Answer="Ответ на вопрос." },
-				new QuestionAndAnswer { Id = Guid.NewGuid().ToString(), Question = "Почему?", Answer="Ответ на вопрос." },
-				new QuestionAndAnswer { Id = Guid.NewGuid().ToString(), Question = "Кто виноват?", Answer="Ответ на вопрос." },
-				new QuestionAndAnswer { Id = Guid.NewGuid().ToString(), Question = "Что делать?", Answer="Ответ на вопрос." }
+				new QuestionAndAnswer { QAId = Guid.NewGuid().ToString(), QAQuestion = "Что?", QAAnswer="Ответ на вопрос." },
+				new QuestionAndAnswer { QAId = Guid.NewGuid().ToString(), QAQuestion = "Где?", QAAnswer="Ответ на вопрос." },
+				new QuestionAndAnswer { QAId = Guid.NewGuid().ToString(), QAQuestion = "Когда?", QAAnswer="Ответ на вопрос." },
+				new QuestionAndAnswer { QAId = Guid.NewGuid().ToString(), QAQuestion = "Почему?", QAAnswer="Ответ на вопрос." },
+				new QuestionAndAnswer { QAId = Guid.NewGuid().ToString(), QAQuestion = "Кто виноват?", QAAnswer="Ответ на вопрос." },
+				new QuestionAndAnswer { QAId = Guid.NewGuid().ToString(), QAQuestion = "Что делать?", QAAnswer="Ответ на вопрос." }
 			};
 		}
 
@@ -32,7 +32,7 @@ namespace OncoFitness.Services
 
 		public async Task<bool> UpdateItemAsync(QuestionAndAnswer item)
 		{
-			var oldItem = items.Where((QuestionAndAnswer arg) => arg.Id == item.Id).FirstOrDefault();
+			var oldItem = items.Where((QuestionAndAnswer arg) => arg.QAId == item.QAId).FirstOrDefault();
 			items.Remove(oldItem);
 			items.Add(item);
 
@@ -41,7 +41,7 @@ namespace OncoFitness.Services
 
 		public async Task<bool> DeleteItemAsync(string id)
 		{
-			var oldItem = items.Where((QuestionAndAnswer arg) => arg.Id == id).FirstOrDefault();
+			var oldItem = items.Where((QuestionAndAnswer arg) => arg.QAId == id).FirstOrDefault();
 			items.Remove(oldItem);
 
 			return await Task.FromResult(true);
@@ -49,7 +49,7 @@ namespace OncoFitness.Services
 
 		public async Task<QuestionAndAnswer> GetItemAsync(string id)
 		{
-			return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
+			return await Task.FromResult(items.FirstOrDefault(s => s.QAId == id));
 		}
 
 		public async Task<IEnumerable<QuestionAndAnswer>> GetItemsAsync(bool forceRefresh = false)

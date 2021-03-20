@@ -135,7 +135,7 @@ namespace OncoFitness.ViewModels
 				return;
 
 			// This will push the TrainingDetailPage onto the navigation stack
-			await Shell.Current.GoToAsync($"{nameof(TrainingDetailPage)}?{nameof(TrainingDetailViewModel.ItemId)}={item.Id}");
+			await Shell.Current.GoToAsync($"{nameof(TrainingDetailPage)}?{nameof(TrainingDetailViewModel.ItemId)}={item.TrainingId}");
 		}
 	}
 }
