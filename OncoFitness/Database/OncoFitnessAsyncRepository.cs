@@ -23,7 +23,7 @@ namespace OncoFitness.Database
 
 		#endregion
 
-		#region Get item from DB
+		#region Get items from DB
 
 		public async Task<List<Exercise>> GetExerciseItemsAsync()
         {

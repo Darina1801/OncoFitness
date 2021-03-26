@@ -1,4 +1,5 @@
-﻿using OncoFitness.Models;
+﻿using OncoFitness.Database;
+using OncoFitness.Models;
 using OncoFitness.Views;
 using System;
 using System.Collections.ObjectModel;
@@ -36,6 +37,8 @@ namespace OncoFitness.ViewModels
 			{
 				Items.Clear();
 				var items = await QAndADataStore.GetItemsAsync(true);
+				//var RepositoryDB = new OncoFitnessAsyncRepository(@"C:\Users\Darina\source\repos\OncoFitness\OncoFitness\Database\OncoFitnessDatabase.DB");
+				//var items = await RepositoryDB.GetQAItemsAsync();
 				foreach (var item in items)
 				{
 					Items.Add(item);
