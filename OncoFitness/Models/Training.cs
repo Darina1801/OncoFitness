@@ -10,7 +10,7 @@ namespace OncoFitness.Models
 	{
 		#region Properties
 		[PrimaryKey, NotNull, Unique, Column("training_id")]
-		public int TrainingId { get; set; }
+		public string TrainingId { get; set; }
 
 		[NotNull, Column("training_name")]
 		public string TrainingName { get; set; }

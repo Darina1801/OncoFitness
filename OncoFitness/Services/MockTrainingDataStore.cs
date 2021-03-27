@@ -19,8 +19,8 @@ namespace OncoFitness.Services
 				{ 
 					TrainingId = Guid.NewGuid().ToString(), 
 					TrainingDateTime = DateTime.Now,
-					TrainingType = "Равновесие", 
-					PatientAfterTraining = 5, 
+					TrainingType = "Равновесие",
+					TrainingPatientFeelingsAfter = 5, 
 					TrainingElapsedTime = new TimeSpan(0, 3, 45),
 					TrainingNotes="Все упражнения дались легко. Надо больше работать над равновесием" 
 					
@@ -30,7 +30,7 @@ namespace OncoFitness.Services
 					TrainingId = Guid.NewGuid().ToString(),
 					TrainingDateTime = DateTime.Now,
 					TrainingType = "Укрепить ноги",
-					PatientAfterTraining = 5,
+					TrainingPatientFeelingsAfter = 5,
 					TrainingElapsedTime = new TimeSpan(0, 3, 45),
 					TrainingNotes="Температура 38.9. Не тренировалась." 
 				},
@@ -39,7 +39,7 @@ namespace OncoFitness.Services
 					TrainingId = Guid.NewGuid().ToString(),
 					TrainingDateTime = DateTime.Now,
 					TrainingType = "Укрепить руки",
-					PatientAfterTraining = 5,
+					TrainingPatientFeelingsAfter = 5,
 					TrainingElapsedTime = new TimeSpan(0, 3, 45),
 					TrainingNotes="Температура 39.0. Не тренировалась." 
 				},
@@ -48,7 +48,7 @@ namespace OncoFitness.Services
 					TrainingId = Guid.NewGuid().ToString(),
 					TrainingDateTime = DateTime.Now,
 					TrainingType = "Укрепить таз",
-					PatientAfterTraining = 5,
+					TrainingPatientFeelingsAfter = 5,
 					TrainingElapsedTime = new TimeSpan(0, 3, 45),
 					TrainingNotes="Не понимаю упражнение \"Ягодичный мостик\". Ноги должны стоять на ширине плеч или шире?" 
 				},
@@ -57,7 +57,7 @@ namespace OncoFitness.Services
 					TrainingId = Guid.NewGuid().ToString(),
 					TrainingDateTime = DateTime.Now,
 					TrainingType = "Укрепить пресс",
-					PatientAfterTraining = 5,
+					TrainingPatientFeelingsAfter = 5,
 					TrainingElapsedTime = new TimeSpan(0, 3, 45),
 					TrainingNotes="Очень тяжело. Слишком сложные упражнения." 
 				},
@@ -66,7 +66,7 @@ namespace OncoFitness.Services
 					TrainingId = Guid.NewGuid().ToString(),
 					TrainingDateTime = DateTime.Now,
 					TrainingType = "Дыхательная гимнастика",
-					PatientAfterTraining = 5,
+					TrainingPatientFeelingsAfter = 5,
 					TrainingElapsedTime = new TimeSpan(0, 3, 45),
 					TrainingNotes="Все упражнения дались легко, но под конец занятия закружилась голова." 
 				},
