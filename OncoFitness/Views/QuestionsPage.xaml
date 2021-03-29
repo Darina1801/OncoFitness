@@ -34,11 +34,11 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="10" x:DataType="model:QuestionAndAnswer">
-                            <Label Text="{Binding Question}" 
+                            <Label Text="{Binding QAQuestion}" 
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />
-                            <Label Text="{Binding Answer}" 
+                            <Label Text="{Binding QAAnswer}" 
                             LineBreakMode="TailTruncation"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />

@@ -9,7 +9,7 @@ namespace OncoFitness
 {
 	public partial class App : Application
 	{
-        public const string DatabaseNameConst = "OncoFitnessDatabase.db";
+        public const string DatabaseNameConst = "OncoFitnessDatabase.sqlite";
         public static OncoFitnessAsyncRepository database;
         public static OncoFitnessAsyncRepository Database
         {
@@ -25,7 +25,7 @@ namespace OncoFitness
                         // получаем текущую сборку
                         var assembly = IntrospectionExtensions.GetTypeInfo(typeof(App)).Assembly;
                         // берем из нее ресурс базы данных и создаем из него поток
-                        using (Stream stream = assembly.GetManifestResourceStream($"OncoFitness.{DatabaseNameConst}"))
+                        using (Stream stream = assembly.GetManifestResourceStream($"OncoFitness.Database.{DatabaseNameConst}"))
                         {
                             using (FileStream fs = new FileStream(dbPath, FileMode.OpenOrCreate))
                             {

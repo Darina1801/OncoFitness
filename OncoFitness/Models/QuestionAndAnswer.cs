@@ -8,8 +8,8 @@ namespace OncoFitness.Models
 	{
 		#region Properties
 
-		[PrimaryKey, NotNull, Unique, Column("QA_id")]
-		public string QAId { get; set; }
+		[PrimaryKey, AutoIncrement, NotNull, Unique, Column("QA_id")]
+		public int QAId { get; set; }
 
 		[NotNull, Unique, Column("QA_question")]
 		public string QAQuestion { get; set; }

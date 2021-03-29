@@ -11,14 +11,14 @@ namespace OncoFitness.ViewModels
 	[QueryProperty(nameof(ItemId), nameof(ItemId))]
 	public class TrainingDetailViewModel : BaseViewModel
 	{
-		private string itemId;
+		private int itemId;
 		private string trainingType;
 		private string trainingNotes; 
 		private DateTime trainingDateTime;
 		private TimeSpan trainingElapsedTime;
 		private int patientAfterTraining;
 
-		public string Id { get; set; }
+		public int Id { get; set; }
 
 		public string TrainingType
 		{
@@ -49,7 +49,7 @@ namespace OncoFitness.ViewModels
 			set => SetProperty(ref patientAfterTraining, value);
 		}
 
-		public string ItemId
+		public int ItemId
 		{
 			get
 			{
@@ -64,7 +64,7 @@ namespace OncoFitness.ViewModels
 
 		public ObservableCollection<object> Items { get; set; }
 
-		public async void LoadItemId(string itemId)
+		public async void LoadItemId(int itemId)
 		{
 			try
 			{
