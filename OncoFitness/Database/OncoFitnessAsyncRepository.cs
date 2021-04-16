@@ -46,7 +46,7 @@ namespace OncoFitness.Database
         {
             return await database.GetAsync<Exercise>(id);
         }
-        public async Task<QuestionAndAnswer> GetQAIdItemAsync(string id)
+        public async Task<QuestionAndAnswer> GetQAIdItemAsync(int id)
         {
             return await database.GetAsync<QuestionAndAnswer>(id);
         }
