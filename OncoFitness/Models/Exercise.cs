@@ -10,23 +10,23 @@ namespace OncoFitness.Models
 	{
 		#region Properties
 		
-		[PrimaryKey, NotNull, Unique, Column("exercise_id")]
+		[PrimaryKey, AutoIncrement, NotNull, Unique, Column("exercise_id")]
 		public int ExerciseId { get; set; }
 		
 		[NotNull, Unique, Column("exercise_name")]
 		public string ExerciseName { get; set; }
 		
-		[NotNull, Unique, Column("exercise_image_path")]
-		public string ExeciseImagePath { get; set; }
+		[NotNull, Column("exercise_image_path")]
+		public string ExerciseImagePath { get; set; }
 		
-		[NotNull, Unique, Column("exercise_name")]
+		[NotNull, Column("exercise_repeats_count")]
 		public int ExerciseRepeatsCount { get; set; }
 		
-		[Column("exercise_count")]
+		[Column("exercise_description")]
 		public string ExerciseDescription { get; set; }
 		
 		[Column("exercise_elapsed_time")]
-		public TimeSpan ExerciseElapsedTime { get; set; }
+		public string ExerciseElapsedTime { get; set; }
 
 		#endregion
 	}

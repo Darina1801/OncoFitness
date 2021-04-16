@@ -42,7 +42,7 @@ namespace OncoFitness.Database
 
 		#region Get item id from DB
 
-		public async Task<Exercise> GetExerciseIdItemAsync(int id)
+		public async Task<Exercise> GetExerciseIdItemAsync(string id)
         {
             return await database.GetAsync<Exercise>(id);
         }

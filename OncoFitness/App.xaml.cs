@@ -9,7 +9,7 @@ namespace OncoFitness
 {
 	public partial class App : Application
 	{
-        public const string DatabaseNameConst = "OncoFitnessDatabase.sqlite";
+        public const string DatabaseNameConst = "OncoFitnessDatabase2.sqlite";
         public static OncoFitnessAsyncRepository database;
         public static OncoFitnessAsyncRepository Database
         {

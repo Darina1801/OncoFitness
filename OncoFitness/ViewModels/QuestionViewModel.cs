@@ -36,10 +36,7 @@ namespace OncoFitness.ViewModels
 			try
 			{
 				Items.Clear();
-				//var items = await QAndADataStore.GetItemsAsync(true);
-				//var RepositoryDB = new OncoFitnessAsyncRepository(@"OncoFitnessDatabase.DB");
 				var RepositoryDB = App.Database;
-				//await RepositoryDB.CreateQandATable();
 				var items = await RepositoryDB.GetQAItemsAsync();
 				foreach (var item in items)
 				{

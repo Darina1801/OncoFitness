@@ -17,5 +17,10 @@ namespace OncoFitness.Views
 			InitializeComponent();
 			this.BindingContext = new StartTrainingViewModel();
 		}
+
+		protected async override void OnAppearing()
+		{
+			await ((StartTrainingViewModel)this.BindingContext).ExecuteLoadItemsCommand();
+		}
 	}
 }

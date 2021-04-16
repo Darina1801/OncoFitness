@@ -128,63 +128,95 @@ namespace OncoFitness.ViewModels
 			PauseVisibility = false;
 			FinishTrainingVisibility = true;
 
-			Items = new ObservableCollection<ExerciseViewModel>()
-			{ 
-				new ExerciseViewModel 
-				{ 
-					Exercise = new Exercise
-					{ 
-						ExerciseName = "Упражнение 1", 
-						ExeciseImagePath = "OncoFitness_Logo.png", 
-						ExerciseRepeatsCount = 10 
-					} 
-				},
+			Items = new ObservableCollection<ExerciseViewModel>();
+			//{ 
+			//	new ExerciseViewModel 
+			//	{ 
+			//		Exercise = new Exercise
+			//		{ 
+			//			ExerciseName = "Упражнение 1", 
+			//			ExeciseImagePath = "OncoFitness_Logo.png", 
+			//			ExerciseRepeatsCount = 10 
+			//		} 
+			//	},
+			//
+			//	new ExerciseViewModel
+			//	{
+			//		Exercise = new Exercise
+			//		{
+			//			ExerciseName = "Упражнение 2",
+			//			ExeciseImagePath = "OncoFitness_Logo.png",
+			//			ExerciseRepeatsCount = 10
+			//		}
+			//	},
+			//
+			//	new ExerciseViewModel
+			//	{
+			//		Exercise = new Exercise
+			//		{
+			//			ExerciseName = "Упражнение 3",
+			//			ExeciseImagePath = "OncoFitness_Logo.png",
+			//			ExerciseRepeatsCount = 10
+			//		}
+			//	},
+			//
+			//	new ExerciseViewModel
+			//	{
+			//		Exercise = new Exercise
+			//		{
+			//			ExerciseName = "Упражнение 4",
+			//			ExeciseImagePath = "OncoFitness_Logo.png",
+			//			ExerciseRepeatsCount = 10
+			//		}
+			//	},
+			//
+			//	new ExerciseViewModel
+			//	{
+			//		Exercise = new Exercise
+			//		{
+			//			ExerciseName = "Упражнение 5",
+			//			ExeciseImagePath = "OncoFitness_Logo.png",
+			//			ExerciseRepeatsCount = 10
+			//		}
+			//	},
+			//};
 
-				new ExerciseViewModel
-				{
-					Exercise = new Exercise
-					{
-						ExerciseName = "Упражнение 2",
-						ExeciseImagePath = "OncoFitness_Logo.png",
-						ExerciseRepeatsCount = 10
-					}
-				},
 
-				new ExerciseViewModel
-				{
-					Exercise = new Exercise
-					{
-						ExerciseName = "Упражнение 3",
-						ExeciseImagePath = "OncoFitness_Logo.png",
-						ExerciseRepeatsCount = 10
-					}
-				},
-
-				new ExerciseViewModel
-				{
-					Exercise = new Exercise
-					{
-						ExerciseName = "Упражнение 4",
-						ExeciseImagePath = "OncoFitness_Logo.png",
-						ExerciseRepeatsCount = 10
-					}
-				},
-
-				new ExerciseViewModel
-				{
-					Exercise = new Exercise
-					{
-						ExerciseName = "Упражнение 5",
-						ExeciseImagePath = "OncoFitness_Logo.png",
-						ExerciseRepeatsCount = 10
-					}
-				},
-			};
 		}
 
 		#endregion
 
 		#region Methods
+
+		public async Task ExecuteLoadItemsCommand()
+		{
+			IsBusy = true;
+
+			try
+			{
+				Items.Clear();
+				var RepositoryDB = App.Database;
+				var items = await RepositoryDB.GetExerciseItemsAsync();
+				foreach (var item in items)
+				{
+					Items.Add
+					(
+						new ExerciseViewModel
+						{
+							Exercise = item
+						}
+					);
+				}
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex);
+			}
+			finally
+			{
+				IsBusy = false;
+			}
+		}
 
 		async Task ExecuteFinishTrainingCommand()
 		{

@@ -8,15 +8,19 @@
   <ItemGroup>
     <None Remove="Database\OncoFitnessDatabase.sqlite" />
     <None Remove="Database\OncoFitnessDatabase.sqlite.DB" />
+    <None Remove="Database\OncoFitnessDatabase2.sqlite" />
     <None Remove="Database\OncoFitnessDatabase_DataBackup.sqlite" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Database\OncoFitnessDatabase2.sqlite">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Database\OncoFitnessDatabase_DataBackup.sqlite">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Database\OncoFitnessDatabase.sqlite">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
 
