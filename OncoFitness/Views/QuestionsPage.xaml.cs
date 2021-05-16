@@ -19,7 +19,6 @@ namespace OncoFitness.Views
 		public QuestionsPage()
 		{
 			InitializeComponent();
-
 			BindingContext = _viewModel = new QuestionViewModel();
 		}
 

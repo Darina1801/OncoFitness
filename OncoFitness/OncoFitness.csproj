@@ -6,20 +6,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Database\MyDatabase.sqlite" />
+    <None Remove="Database\MyDatabaseDB.db" />
     <None Remove="Database\OncoFitnessDatabase.sqlite" />
     <None Remove="Database\OncoFitnessDatabase.sqlite.DB" />
     <None Remove="Database\OncoFitnessDatabase2.sqlite" />
+    <None Remove="Database\OncoFitnessDatabase_Backup.DB" />
     <None Remove="Database\OncoFitnessDatabase_DataBackup.sqlite" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Database\OncoFitnessDatabase2.sqlite">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <EmbeddedResource Include="Database\MyDatabase.sqlite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Database\OncoFitnessDatabase_DataBackup.sqlite">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Database\OncoFitnessDatabase.sqlite">
+    <EmbeddedResource Include="Database\MyDatabaseDB.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

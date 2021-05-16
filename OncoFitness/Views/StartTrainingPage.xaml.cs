@@ -12,15 +12,19 @@ namespace OncoFitness.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class StartTrainingPage : ContentPage
 	{
+		StartTrainingViewModel _viewModel;
+
 		public StartTrainingPage()
 		{
 			InitializeComponent();
-			this.BindingContext = new StartTrainingViewModel();
+			BindingContext = _viewModel = new StartTrainingViewModel();
 		}
 
 		protected async override void OnAppearing()
 		{
-			await ((StartTrainingViewModel)this.BindingContext).ExecuteLoadItemsCommand();
+			base.OnAppearing();
+			await _viewModel.OnAppearing();
+			//await ((StartTrainingViewModel)this.BindingContext).ExecuteLoadItemsCommand();
 		}
 	}
 }

@@ -32,6 +32,7 @@ namespace OncoFitness.ViewModels
 		public Command StartNewExerciseCommand { get; }
 		public Command PauseExerciseCommand { get; }
 		public Command StopExerciseCommand { get; }
+		public Command LoadItemsCommand { get; }
 		public string TrainingGoal
 		{
 			get { return trainingGoal; }
@@ -128,7 +129,9 @@ namespace OncoFitness.ViewModels
 			PauseVisibility = false;
 			FinishTrainingVisibility = true;
 
+			LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 			Items = new ObservableCollection<ExerciseViewModel>();
+			ExecuteLoadItemsCommand();
 			//{ 
 			//	new ExerciseViewModel 
 			//	{ 
@@ -187,6 +190,13 @@ namespace OncoFitness.ViewModels
 		#endregion
 
 		#region Methods
+
+		public async Task OnAppearing()
+		{
+			//IsBusy = true;
+			//SelectedItem = null;
+			//await ExecuteLoadItemsCommand();
+		}
 
 		public async Task ExecuteLoadItemsCommand()
 		{

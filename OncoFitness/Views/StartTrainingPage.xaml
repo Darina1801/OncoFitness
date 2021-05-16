@@ -53,7 +53,7 @@
                         <ViewCell Height="200">
                             <StackLayout VerticalOptions="FillAndExpand" 
                                          HorizontalOptions="EndAndExpand">
-                                <Label Text="{Binding Exercise.ExerciseExerciseName}" 
+                                <Label Text="{Binding Exercise.ExerciseName}" 
                                        FontSize="Subtitle"/>
                                 <Frame Padding="1"
                                        BorderColor="{Binding BorderColor, Mode=TwoWay}"

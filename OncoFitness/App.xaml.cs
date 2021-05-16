@@ -9,7 +9,7 @@ namespace OncoFitness
 {
 	public partial class App : Application
 	{
-        public const string DatabaseNameConst = "OncoFitnessDatabase2.sqlite";
+        public const string DatabaseNameConst = "MyDatabaseDB.db";
         public static OncoFitnessAsyncRepository database;
         public static OncoFitnessAsyncRepository Database
         {
@@ -18,7 +18,7 @@ namespace OncoFitness
                 if (database == null)
                 {
                     // путь, по которому будет находиться база данных
-                    string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), DatabaseNameConst);
+                    string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), DatabaseNameConst);
                     // если база данных не существует (еще не скопирована)
                     if (!File.Exists(dbPath))
                     {
