@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace OncoFitness.Services
 {
-	class MockTrainingDataStore : IDataStore<Training>
+	class ObsoleteMockTrainingDataStore : IDataStore<Training>
 	{
 		readonly List<Training> items;
 
-		public MockTrainingDataStore()
+		public ObsoleteMockTrainingDataStore()
 		{
 			items = new List<Training>()
 			{

@@ -132,59 +132,6 @@ namespace OncoFitness.ViewModels
 			LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 			Items = new ObservableCollection<ExerciseViewModel>();
 			ExecuteLoadItemsCommand();
-			//{ 
-			//	new ExerciseViewModel 
-			//	{ 
-			//		Exercise = new Exercise
-			//		{ 
-			//			ExerciseName = "Упражнение 1", 
-			//			ExeciseImagePath = "OncoFitness_Logo.png", 
-			//			ExerciseRepeatsCount = 10 
-			//		} 
-			//	},
-			//
-			//	new ExerciseViewModel
-			//	{
-			//		Exercise = new Exercise
-			//		{
-			//			ExerciseName = "Упражнение 2",
-			//			ExeciseImagePath = "OncoFitness_Logo.png",
-			//			ExerciseRepeatsCount = 10
-			//		}
-			//	},
-			//
-			//	new ExerciseViewModel
-			//	{
-			//		Exercise = new Exercise
-			//		{
-			//			ExerciseName = "Упражнение 3",
-			//			ExeciseImagePath = "OncoFitness_Logo.png",
-			//			ExerciseRepeatsCount = 10
-			//		}
-			//	},
-			//
-			//	new ExerciseViewModel
-			//	{
-			//		Exercise = new Exercise
-			//		{
-			//			ExerciseName = "Упражнение 4",
-			//			ExeciseImagePath = "OncoFitness_Logo.png",
-			//			ExerciseRepeatsCount = 10
-			//		}
-			//	},
-			//
-			//	new ExerciseViewModel
-			//	{
-			//		Exercise = new Exercise
-			//		{
-			//			ExerciseName = "Упражнение 5",
-			//			ExeciseImagePath = "OncoFitness_Logo.png",
-			//			ExerciseRepeatsCount = 10
-			//		}
-			//	},
-			//};
-
-
 		}
 
 		#endregion
@@ -193,9 +140,7 @@ namespace OncoFitness.ViewModels
 
 		public async Task OnAppearing()
 		{
-			//IsBusy = true;
-			//SelectedItem = null;
-			//await ExecuteLoadItemsCommand();
+			IsBusy = true;
 		}
 
 		public async Task ExecuteLoadItemsCommand()

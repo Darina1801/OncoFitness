@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace OncoFitness.Services
 {
-	public class MockQAndADataStore : IDataStore<QuestionAndAnswer>
+	public class ObsoleteMockQAndADataStore : IDataStore<QuestionAndAnswer>
 	{
 		readonly List<QuestionAndAnswer> items;
 
-		public MockQAndADataStore()
+		public ObsoleteMockQAndADataStore()
 		{
 			items = new List<QuestionAndAnswer>()
 			{

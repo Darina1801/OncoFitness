@@ -44,8 +44,8 @@ namespace OncoFitness
 		{
 			InitializeComponent();
 
-			DependencyService.Register<MockQAndADataStore>();
-			DependencyService.Register<MockTrainingDataStore>();
+			DependencyService.Register<ObsoleteMockQAndADataStore>();
+			DependencyService.Register<ObsoleteMockTrainingDataStore>();
 			MainPage = new AppShell();
 		}
 
