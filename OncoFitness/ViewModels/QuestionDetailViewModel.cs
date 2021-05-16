@@ -9,10 +9,10 @@ namespace OncoFitness.ViewModels
 	[QueryProperty(nameof(ItemId), nameof(ItemId))]
 	public class QuestionDetailViewModel : BaseViewModel
 	{
-		private string itemId;
+		private int itemId;
 		private string question;
 		private string answer;
-		public string Id { get; set; }
+		public int Id { get; set; }
 
 		public string Question
 		{
@@ -26,7 +26,7 @@ namespace OncoFitness.ViewModels
 			set => SetProperty(ref answer, value);
 		}
 
-		public string ItemId
+		public int ItemId
 		{
 			get
 			{
@@ -39,14 +39,14 @@ namespace OncoFitness.ViewModels
 			}
 		}
 
-		public async void LoadItemId(string itemId)
+		public async void LoadItemId(int itemId)
 		{
 			try
 			{
-				var item = await QAndADataStore.GetItemAsync(itemId);
-				Id = item.Id;
-				Question = item.Question;
-				Answer = item.Answer;
+				var item = await App.Database.GetQAIdItemAsync(itemId);
+				Id = item.QAId;
+				Question = item.QAQuestion;
+				Answer = item.QAAnswer;
 			}
 			catch (Exception)
 			{

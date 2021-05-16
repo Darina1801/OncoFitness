@@ -7,66 +7,66 @@ using System.Threading.Tasks;
 
 namespace OncoFitness.Services
 {
-	class MockTrainingDataStore : IDataStore<Training>
+	class ObsoleteMockTrainingDataStore : IDataStore<Training>
 	{
 		readonly List<Training> items;
 
-		public MockTrainingDataStore()
+		public ObsoleteMockTrainingDataStore()
 		{
 			items = new List<Training>()
 			{
 				new Training 
 				{ 
-					Id = Guid.NewGuid().ToString(), 
+					//TrainingId = Guid.NewGuid().ToString(), 
 					TrainingDateTime = DateTime.Now,
-					TrainingType = "Равновесие", 
-					PatientAfterTraining = 5, 
+					TrainingType = "Равновесие",
+					TrainingPatientFeelingsAfter = 5, 
 					TrainingElapsedTime = new TimeSpan(0, 3, 45),
 					TrainingNotes="Все упражнения дались легко. Надо больше работать над равновесием" 
 					
 				},
 				new Training 
 				{ 
-					Id = Guid.NewGuid().ToString(),
+					//TrainingId = Guid.NewGuid().ToString(),
 					TrainingDateTime = DateTime.Now,
 					TrainingType = "Укрепить ноги",
-					PatientAfterTraining = 5,
+					TrainingPatientFeelingsAfter = 5,
 					TrainingElapsedTime = new TimeSpan(0, 3, 45),
 					TrainingNotes="Температура 38.9. Не тренировалась." 
 				},
 				new Training 
 				{ 
-					Id = Guid.NewGuid().ToString(),
+					//TrainingId = Guid.NewGuid().ToString(),
 					TrainingDateTime = DateTime.Now,
 					TrainingType = "Укрепить руки",
-					PatientAfterTraining = 5,
+					TrainingPatientFeelingsAfter = 5,
 					TrainingElapsedTime = new TimeSpan(0, 3, 45),
 					TrainingNotes="Температура 39.0. Не тренировалась." 
 				},
 				new Training 
 				{ 
-					Id = Guid.NewGuid().ToString(),
+					//TrainingId = Guid.NewGuid().ToString(),
 					TrainingDateTime = DateTime.Now,
 					TrainingType = "Укрепить таз",
-					PatientAfterTraining = 5,
+					TrainingPatientFeelingsAfter = 5,
 					TrainingElapsedTime = new TimeSpan(0, 3, 45),
 					TrainingNotes="Не понимаю упражнение \"Ягодичный мостик\". Ноги должны стоять на ширине плеч или шире?" 
 				},
 				new Training 
 				{ 
-					Id = Guid.NewGuid().ToString(),
+					//TrainingId = Guid.NewGuid().ToString(),
 					TrainingDateTime = DateTime.Now,
 					TrainingType = "Укрепить пресс",
-					PatientAfterTraining = 5,
+					TrainingPatientFeelingsAfter = 5,
 					TrainingElapsedTime = new TimeSpan(0, 3, 45),
 					TrainingNotes="Очень тяжело. Слишком сложные упражнения." 
 				},
 				new Training 
 				{ 
-					Id = Guid.NewGuid().ToString(),
+					//TrainingId = Guid.NewGuid().ToString(),
 					TrainingDateTime = DateTime.Now,
 					TrainingType = "Дыхательная гимнастика",
-					PatientAfterTraining = 5,
+					TrainingPatientFeelingsAfter = 5,
 					TrainingElapsedTime = new TimeSpan(0, 3, 45),
 					TrainingNotes="Все упражнения дались легко, но под конец занятия закружилась голова." 
 				},
@@ -80,17 +80,17 @@ namespace OncoFitness.Services
 			return await Task.FromResult(true);
 		}
 
-		public async Task<bool> DeleteItemAsync(string id)
+		public async Task<bool> DeleteItemAsync(int id)
 		{
-			var oldItem = items.Where((Training arg) => arg.Id == id).FirstOrDefault();
+			var oldItem = items.Where((Training arg) => arg.TrainingId == id).FirstOrDefault();
 			items.Remove(oldItem);
 
 			return await Task.FromResult(true);
 		}
 
-		public async Task<Training> GetItemAsync(string id)
+		public async Task<Training> GetItemAsync(int id)
 		{
-			return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
+			return await Task.FromResult(items.FirstOrDefault(s => s.TrainingId == id));
 		}
 
 		public async Task<IEnumerable<Training>> GetItemsAsync(bool forceRefresh = false)
@@ -100,7 +100,7 @@ namespace OncoFitness.Services
 
 		public async Task<bool> UpdateItemAsync(Training item)
 		{
-			var oldItem = items.Where((Training arg) => arg.Id == item.Id).FirstOrDefault();
+			var oldItem = items.Where((Training arg) => arg.TrainingId == item.TrainingId).FirstOrDefault();
 			items.Remove(oldItem);
 			items.Add(item);
 

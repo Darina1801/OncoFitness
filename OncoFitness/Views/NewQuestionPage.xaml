@@ -8,10 +8,10 @@
              ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <StackLayout Spacing="3" Padding="15">
-            <Label Text="Question" FontSize="Medium" />
-            <Entry Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" />
-            <Label Text="Description" FontSize="Medium" />
-            <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+            <Label Text="Вопрос" FontSize="Medium" />
+            <Entry Text="{Binding QuestionAndAnswer.QAQuestion, Mode=TwoWay}" FontSize="Medium" />
+            <Label Text="Ответ" FontSize="Medium" />
+            <Editor Text="{Binding QuestionAndAnswer.QAAnswer, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
             <StackLayout Orientation="Horizontal">
                 <Button Text="Закрыть" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
                 <Button Text="Отправить" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>

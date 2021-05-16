@@ -32,6 +32,7 @@ namespace OncoFitness.ViewModels
 		public Command StartNewExerciseCommand { get; }
 		public Command PauseExerciseCommand { get; }
 		public Command StopExerciseCommand { get; }
+		public Command LoadItemsCommand { get; }
 		public string TrainingGoal
 		{
 			get { return trainingGoal; }
@@ -128,63 +129,49 @@ namespace OncoFitness.ViewModels
 			PauseVisibility = false;
 			FinishTrainingVisibility = true;
 
-			Items = new ObservableCollection<ExerciseViewModel>()
-			{ 
-				new ExerciseViewModel 
-				{ 
-					Exercise = new Exercise
-					{ 
-						Name = "Упражнение 1", 
-						ImagePath = "OncoFitness_Logo.png", 
-						RepeatsCount = 10 
-					} 
-				},
-
-				new ExerciseViewModel
-				{
-					Exercise = new Exercise
-					{
-						Name = "Упражнение 2",
-						ImagePath = "OncoFitness_Logo.png",
-						RepeatsCount = 10
-					}
-				},
-
-				new ExerciseViewModel
-				{
-					Exercise = new Exercise
-					{
-						Name = "Упражнение 3",
-						ImagePath = "OncoFitness_Logo.png",
-						RepeatsCount = 10
-					}
-				},
-
-				new ExerciseViewModel
-				{
-					Exercise = new Exercise
-					{
-						Name = "Упражнение 4",
-						ImagePath = "OncoFitness_Logo.png",
-						RepeatsCount = 10
-					}
-				},
-
-				new ExerciseViewModel
-				{
-					Exercise = new Exercise
-					{
-						Name = "Упражнение 5",
-						ImagePath = "OncoFitness_Logo.png",
-						RepeatsCount = 10
-					}
-				},
-			};
+			LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+			Items = new ObservableCollection<ExerciseViewModel>();
+			ExecuteLoadItemsCommand();
 		}
 
 		#endregion
 
 		#region Methods
+
+		public async Task OnAppearing()
+		{
+			IsBusy = true;
+		}
+
+		public async Task ExecuteLoadItemsCommand()
+		{
+			IsBusy = true;
+
+			try
+			{
+				Items.Clear();
+				var RepositoryDB = App.Database;
+				var items = await RepositoryDB.GetExerciseItemsAsync();
+				foreach (var item in items)
+				{
+					Items.Add
+					(
+						new ExerciseViewModel
+						{
+							Exercise = item
+						}
+					);
+				}
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex);
+			}
+			finally
+			{
+				IsBusy = false;
+			}
+		}
 
 		async Task ExecuteFinishTrainingCommand()
 		{

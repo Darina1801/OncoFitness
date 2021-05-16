@@ -1,4 +1,5 @@
-﻿using OncoFitness.Models;
+﻿using OncoFitness.Database;
+using OncoFitness.Models;
 using OncoFitness.Views;
 using System;
 using System.Collections.ObjectModel;
@@ -35,7 +36,8 @@ namespace OncoFitness.ViewModels
 			try
 			{
 				Items.Clear();
-				var items = await QAndADataStore.GetItemsAsync(true);
+				var RepositoryDB = App.Database;
+				var items = await RepositoryDB.GetQAItemsAsync();
 				foreach (var item in items)
 				{
 					Items.Add(item);
@@ -78,7 +80,7 @@ namespace OncoFitness.ViewModels
 				return;
 
 			// This will push the QuestionDetailPage onto the navigation stack
-			await Shell.Current.GoToAsync($"{nameof(QuestionDetailPage)}?{nameof(QuestionDetailViewModel.ItemId)}={item.Id}");
+			await Shell.Current.GoToAsync($"{nameof(QuestionDetailPage)}?{nameof(QuestionDetailViewModel.ItemId)}={item.QAId}");
 		}
 	}
 }

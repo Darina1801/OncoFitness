@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OncoFitness.Android", "Onco
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OncoFitness.iOS", "OncoFitness.iOS\OncoFitness.iOS.csproj", "{B963DB87-AD00-41D1-8BD1-142E68A7F619}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OncoFitness", "OncoFitness\OncoFitness.csproj", "{0C27683D-E359-40BD-8B39-E91A1FE8D318}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OncoFitness", "OncoFitness\OncoFitness.csproj", "{0C27683D-E359-40BD-8B39-E91A1FE8D318}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

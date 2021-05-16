@@ -6,6 +6,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Database\MyDatabase.sqlite" />
+    <None Remove="Database\MyDatabaseDB.db" />
+    <None Remove="Database\OncoFitnessDatabase.sqlite" />
+    <None Remove="Database\OncoFitnessDatabase.sqlite.DB" />
+    <None Remove="Database\OncoFitnessDatabase2.sqlite" />
+    <None Remove="Database\OncoFitnessDatabase_Backup.DB" />
+    <None Remove="Database\OncoFitnessDatabase_DataBackup.sqlite" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Database\MyDatabase.sqlite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Database\MyDatabaseDB.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />  
