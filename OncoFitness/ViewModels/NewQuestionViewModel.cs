@@ -1,30 +1,33 @@
 ﻿using OncoFitness.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace OncoFitness.ViewModels
 {
 	public class NewQuestionViewModel : BaseViewModel
 	{
+		protected List<string> emailsList = new List<string>() { "kuz-dana@mail.ru" };
 		private string question;
 		private string description;
 
 		public NewQuestionViewModel()
 		{
 			//Change method OnSave to Send to developers
-			SaveCommand = new Command(OnSave, ValidateSave);
+			//Add validation to SendCommand(..., ValidateSend);
+			SendCommand = new Command(OnSend);
 			CancelCommand = new Command(OnCancel);
 			this.PropertyChanged +=
-				(_, __) => SaveCommand.ChangeCanExecute();
+				(_, __) => SendCommand.ChangeCanExecute();
 		}
 
-		private bool ValidateSave()
+		private bool ValidateSend()
 		{
-			return !String.IsNullOrWhiteSpace(question)
-				&& !String.IsNullOrWhiteSpace(description);
+			return !String.IsNullOrWhiteSpace(question);
 		}
 
 		public string Question
@@ -39,7 +42,7 @@ namespace OncoFitness.ViewModels
 			set => SetProperty(ref description, value);
 		}
 
-		public Command SaveCommand { get; }
+		public Command SendCommand { get; }
 		public Command CancelCommand { get; }
 
 		private async void OnCancel()
@@ -48,19 +51,32 @@ namespace OncoFitness.ViewModels
 			await Shell.Current.GoToAsync("..");
 		}
 
-		private async void OnSave()
+		public string MessageBuilder(string question, string description)
 		{
-			QuestionAndAnswer newItem = new QuestionAndAnswer()
-			{
-				//QAId = Guid.NewGuid().ToString(),
-				QAQuestion = Question,
-				QAAnswer = Description
+			return question + Environment.NewLine + description;
+		}
+
+		private async void OnSend()
+		{
+			EmailMessage newQuestionMessage = new EmailMessage 
+			{ 
+				Subject = "OncoFitness New Question", 
+				To = emailsList, 
+				Body = MessageBuilder(Question, Description),
 			};
-
-			await QAndADataStore.AddItemAsync(newItem);
-
-			// This will pop the current page off the navigation stack
-			await Shell.Current.GoToAsync("..");
+			try
+			{
+				await Email.ComposeAsync(newQuestionMessage);
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex);
+			}
+			finally
+			{
+				// This will pop the current page off the navigation stack
+				await Shell.Current.GoToAsync("..");
+			}
 		}
 	}
 }
