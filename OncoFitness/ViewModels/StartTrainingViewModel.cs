@@ -138,11 +138,6 @@ namespace OncoFitness.ViewModels
 
 		#region Methods
 
-		public async Task OnAppearing()
-		{
-			IsBusy = true;
-		}
-
 		public async Task ExecuteLoadItemsCommand()
 		{
 			IsBusy = true;

@@ -19,12 +19,5 @@ namespace OncoFitness.Views
 			InitializeComponent();
 			BindingContext = _viewModel = new StartTrainingViewModel();
 		}
-
-		protected async override void OnAppearing()
-		{
-			base.OnAppearing();
-			await _viewModel.OnAppearing();
-			//await ((StartTrainingViewModel)this.BindingContext).ExecuteLoadItemsCommand();
-		}
 	}
 }
