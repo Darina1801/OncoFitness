@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OncoFitness.Views.PreliminarySurveyPage"
+             Title="Предварительный опрос">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Ответьте на несколько вопросов, чтобы начать тренировку"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"/>
+            
+            <Label Text="Как бы Вы оценили в целом самочувствие сегодня?"
+                VerticalOptions="Fill" 
+                HorizontalOptions="Fill"/>
+            <RadioButton Value="Очень плохо">
+                <RadioButton.Content>
+                    <StackLayout>
+                        <Image Source="1_VAS_very_bad.jpg"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand" />
+                        <Label Text="Очень плохо"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End" />
+                    </StackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton Value="Плохо">
+                <RadioButton.Content>
+                    <StackLayout>
+                        <Image Source="2_VAS_bad.jpg"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand" />
+                        <Label Text="Плохо"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End" />
+                    </StackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton Value="Средне">
+                <RadioButton.Content>
+                    <StackLayout>
+                        <Image Source="3_VAS_middling.jpg"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand" />
+                        <Label Text="Средне"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End" />
+                    </StackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton Value="Хорошо">
+                <RadioButton.Content>
+                    <StackLayout>
+                        <Image Source="4_VAS_good.jpg"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand" />
+                        <Label Text="Хорошо"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End" />
+                    </StackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton Value="Очень хорошо">
+                <RadioButton.Content>
+                    <StackLayout>
+                        <Image Source="5_VAS_very_good.jpg"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand" />
+                        <Label Text="Очень хорошо"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End" />
+                    </StackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton Value="Отлично">
+                <RadioButton.Content>
+                    <StackLayout>
+                        <Image Source="6_VAS_excellent.jpg"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand" />
+                        <Label Text="Отлично"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End" />
+                    </StackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+            
+            <Label Text="Какая у Вас сегодня температура тела?"
+                VerticalOptions="Fill" 
+                HorizontalOptions="Fill"/>
+            <Label Text="Например, 36,6" FontSize="Medium" />
+            <Editor Text="{Binding ..., Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+
+            <Label Text="Какое у Вас сегодня артериальное давление?"
+                VerticalOptions="Fill" 
+                HorizontalOptions="Fill"/>
+            <Label Text="Например, 120/70" FontSize="Medium" />
+            <Editor Text="{Binding ..., Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+            
+            <Label Text="Испытываете ли Вы сегодня кровоточивость?"
+                VerticalOptions="Fill" 
+                HorizontalOptions="Fill"/>
+            <RadioButton Content="Да" />
+            <RadioButton Content="Нет" />
+            
+            <Label Text="Замечали ли вы на себе в последние сутки новые синяки, гематомы или сыпь?"
+                VerticalOptions="Fill" 
+                HorizontalOptions="Fill"/>
+            <RadioButton Content="Да" />
+            <RadioButton Content="Нет" />
+            
+            <Label Text="Испытываете ли Вы сегодня головокружение?"
+                VerticalOptions="Fill" 
+                HorizontalOptions="Fill"/>
+            <RadioButton Content="Да" />
+            <RadioButton Content="Нет" />
+            
+            <Label Text="Падали ли Вы за последние сутки?"
+                VerticalOptions="Fill" 
+                HorizontalOptions="Fill"/>
+            <RadioButton Content="Да" />
+            <RadioButton Content="Нет" />
+
+            <Label Text="Как бы Вы оценили Вашу слабость сегодня?"
+                VerticalOptions="Fill" 
+                HorizontalOptions="Fill"/>
+            <RadioButton Value="Очень сильная">
+                <RadioButton.Content>
+                    <StackLayout>
+                        <Image Source="1_VAS_very_bad.jpg"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand" />
+                        <Label Text="Очень сильная"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End" />
+                    </StackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton Value="Сильная">
+                <RadioButton.Content>
+                    <StackLayout>
+                        <Image Source="2_VAS_bad.jpg"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand" />
+                        <Label Text="Сильная"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End" />
+                    </StackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton Value="Средняя">
+                <RadioButton.Content>
+                    <StackLayout>
+                        <Image Source="3_VAS_middling.jpg"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand" />
+                        <Label Text="Средняя"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End" />
+                    </StackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton Value="Легкая">
+                <RadioButton.Content>
+                    <StackLayout>
+                        <Image Source="4_VAS_good.jpg"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand" />
+                        <Label Text="Легкая"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End" />
+                    </StackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton Value="Очень легкая">
+                <RadioButton.Content>
+                    <StackLayout>
+                        <Image Source="5_VAS_very_good.jpg"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand" />
+                        <Label Text="Очень легкая"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End" />
+                    </StackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton Value="Слабости нет">
+                <RadioButton.Content>
+                    <StackLayout>
+                        <Image Source="6_VAS_excellent.jpg"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand" />
+                        <Label Text="Слабости нет"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End" />
+                    </StackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+
+            <Label Text="Испытываете ли Вы сегодня тошноту?"
+                VerticalOptions="Fill" 
+                HorizontalOptions="Fill"/>
+            <RadioButton Content="Да" />
+            <RadioButton Content="Нет" />
+
+            <Label Text="Была ли у Вас сегодня рвота?"
+                VerticalOptions="Fill" 
+                HorizontalOptions="Fill"/>
+            <RadioButton Content="Да" />
+            <RadioButton Content="Нет" />
+
+            <Button Margin="0,10,0,0" Text="Записать ответы и подобрать упражнения"
+                        Command="{Binding StartTrainingPage}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
