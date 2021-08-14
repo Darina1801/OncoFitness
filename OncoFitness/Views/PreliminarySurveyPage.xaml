@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OncoFitness.Views.PreliminarySurveyPage"
-             Title="Предварительный опрос">
+             Title="{Binding Title}">
     
     <ContentPage.Content>
         <StackLayout>
@@ -211,7 +211,7 @@
             <RadioButton Content="Нет" />
 
             <Button Margin="0,10,0,0" Text="Записать ответы и подобрать упражнения"
-                        Command="{Binding StartTrainingPage}"
+                        Command="{Binding StartTrainingCommand}"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
         </StackLayout>
