@@ -36,7 +36,7 @@
         </ContentView>
 
         <Button Grid.Row="1" Margin="20,10,20,10" Text="Начать тренировку"
-                    Command="{Binding StartTrainingCommand}"
+                    Command="{Binding StartSurveyCommand}"
                     BackgroundColor="{StaticResource Primary}"
                     TextColor="White" />
 

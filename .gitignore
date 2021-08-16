@@ -338,3 +338,5 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/OncoFitness/Database
+/OncoFitness.Android/Resources/drawable

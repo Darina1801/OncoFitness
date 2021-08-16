@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OncoFitness.Views.PreliminarySurveyPage"
+             Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Пожалуйста, ответьте на несколько вопросов, чтобы начать тренировку"
+                       FontSize="Large"
+                       TextColor="Black"
+                       HorizontalTextAlignment="Center"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center"/>
+
+                <Label Text="Как бы Вы оценили в целом самочувствие сегодня?"
+                       Margin="5"
+                       FontSize="Medium"
+                       VerticalOptions="FillAndExpand" 
+                       HorizontalOptions="FillAndExpand"/>
+                <StackLayout RadioButtonGroup.GroupName="OverallFeeling"
+                             Orientation="Horizontal">
+                    <RadioButton ControlTemplate="{StaticResource RadioButtonTemplate}">
+                        <RadioButton.Content>
+                            <StackLayout>
+                                <Image Source="VAS_1.jpg"
+                                       HeightRequest="40"
+                                       WidthRequest="40"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="CenterAndExpand"/>
+                                <Label Text="Отлично"
+                                       FontSize="Micro" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton ControlTemplate="{StaticResource RadioButtonTemplate}">
+                        <RadioButton.Content>
+                            <StackLayout>
+                                <Image Source="VAS_2.jpg"
+                                       Margin="0,0,10,0"
+                                       HeightRequest="40"
+                                       WidthRequest="40"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="CenterAndExpand"/>
+                                <Label Text="Очень"
+                                       Margin="0,-5,0,-5"
+                                       FontSize="Micro" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"/>
+                                <Label Text="хорошо"
+                                       Margin="0,-5,0,0"
+                                       FontSize="Micro"
+                                       TextColor="Black" 
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton ControlTemplate="{StaticResource RadioButtonTemplate}">
+                        <RadioButton.Content>
+                            <StackLayout>
+                                <Image Source="VAS_3.jpg"
+                                       HeightRequest="40"
+                                       WidthRequest="40"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="CenterAndExpand"/>
+                                <Label Text="Хорошо"
+                                       FontSize="Micro" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton ControlTemplate="{StaticResource RadioButtonTemplate}">
+                        <RadioButton.Content>
+                            <StackLayout>
+                                <Image Source="VAS_4.jpg"
+                                       HeightRequest="40"
+                                       WidthRequest="40"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="CenterAndExpand"/>
+                                <Label Text="Средне"
+                                       FontSize="Micro" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton ControlTemplate="{StaticResource RadioButtonTemplate}">
+                        <RadioButton.Content>
+                            <StackLayout>
+                                <Image Source="VAS_5.jpg"
+                                       HeightRequest="40"
+                                       WidthRequest="40"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="CenterAndExpand"/>
+                                <Label Text="Плохо"
+                                       FontSize="Micro" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton ControlTemplate="{StaticResource RadioButtonTemplate}">
+                        <RadioButton.Content>
+                            <StackLayout HorizontalOptions="Center"
+                                         VerticalOptions="Center">
+                                <Image Source="VAS_6.jpg"
+                                       Margin="-1,0,10,0"
+                                       HeightRequest="40"
+                                       WidthRequest="40"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="CenterAndExpand"/>
+                                <Label Text="Очень"
+                                       Margin="0,-5,0,-5"
+                                       FontSize="Micro" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand">
+                                </Label>
+                                <Label Text="плохо"
+                                       Margin="0,-5,0,0"
+                                       FontSize="Micro" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand">
+                                </Label>
+                            </StackLayout>
+                        </RadioButton.Content>
+                    </RadioButton>
+                </StackLayout>
+
+                <Label Text="Какая у Вас сегодня температура тела?"
+                       Margin="5"
+                       FontSize="Medium"
+                       VerticalOptions="FillAndExpand" 
+                       HorizontalOptions="FillAndExpand"/>
+                <Label Text="Например, 36,6" 
+                       Margin="10,-10,5,5"
+                       FontSize="Small"/>
+                <Editor Text="{Binding PS_Answer_BodyTemp, 
+                                       Mode=TwoWay}" 
+                        AutoSize="TextChanges" 
+                        FontSize="Small" 
+                        Margin="5,-10,5,0"
+                        Keyboard="Numeric"/>
+
+                <Label Text="Какое у Вас сегодня артериальное давление?"
+                       Margin="5"
+                       FontSize="Medium"
+                       VerticalOptions="FillAndExpand" 
+                       HorizontalOptions="FillAndExpand"/>
+                <Label Text="Например, 120/70" 
+                       Margin="10,-10,5,5"
+                       FontSize="Small" />
+                <Editor Text="{Binding PS_Answer_BP, 
+                                       Mode=TwoWay}" 
+                        AutoSize="TextChanges" 
+                        FontSize="Small" 
+                        Margin="5,-10,5,0"
+                        Keyboard="Telephone"/>
+
+                <Label Text="Испытываете ли Вы сегодня кровоточивость?"
+                       Margin="5"
+                       FontSize="Medium"
+                       VerticalOptions="FillAndExpand" 
+                       HorizontalOptions="FillAndExpand"/>
+                <RadioButton Content="Да" 
+                             FontSize="Small"/>
+                <RadioButton Content="Нет" 
+                             FontSize="Small"/>
+
+                <Label Text="Замечали ли вы на себе в последние сутки новые синяки, гематомы или сыпь?"
+                       Margin="5"
+                       FontSize="Medium"
+                       VerticalOptions="FillAndExpand" 
+                       HorizontalOptions="FillAndExpand"/>
+                <RadioButton Content="Да" 
+                             FontSize="Small"/>
+                <RadioButton Content="Нет" 
+                             FontSize="Small"/>
+
+                <Label Text="Испытываете ли Вы сегодня головокружение?"
+                       Margin="5"
+                       FontSize="Medium"
+                       VerticalOptions="FillAndExpand" 
+                       HorizontalOptions="FillAndExpand"/>
+                <RadioButton Content="Да" 
+                             FontSize="Small"/>
+                <RadioButton Content="Нет" 
+                             FontSize="Small"/>
+
+                <Label Text="Падали ли Вы за последние сутки?"
+                       Margin="5"
+                       FontSize="Medium"
+                       VerticalOptions="FillAndExpand" 
+                       HorizontalOptions="FillAndExpand"/>
+                <RadioButton Content="Да" 
+                             FontSize="Small"/>
+                <RadioButton Content="Нет" 
+                             FontSize="Small"/>
+
+                <Label Text="Как бы Вы оценили Вашу слабость сегодня?"
+                       Margin="5"
+                       FontSize="Medium"
+                       VerticalOptions="FillAndExpand" 
+                       HorizontalOptions="FillAndExpand"/>
+                <StackLayout RadioButtonGroup.GroupName="OverallFeeling"
+                             Orientation="Horizontal">
+                    <RadioButton ControlTemplate="{StaticResource RadioButtonTemplate}">
+                        <RadioButton.Content>
+                            <StackLayout>
+                                <Image Source="VAS_1.jpg"
+                                       Margin="0,0,10,0"
+                                       HeightRequest="40"
+                                       WidthRequest="40"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="CenterAndExpand"/>
+                                <Label Text="Слабости"
+                                       Margin="0,-5,0,-5"
+                                       FontSize="Micro" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"/>
+                                <Label Text="нет"
+                                       Margin="0,-5,0,0"
+                                       FontSize="Micro" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton ControlTemplate="{StaticResource RadioButtonTemplate}">
+                        <RadioButton.Content>
+                            <StackLayout>
+                                <Image Source="VAS_2.jpg"
+                                       Margin="0,0,10,0"
+                                       HeightRequest="40"
+                                       WidthRequest="40"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="CenterAndExpand"/>
+                                <Label Text="Очень"
+                                       Margin="0,-5,0,-5"
+                                       FontSize="Micro" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"/>
+                                <Label Text="легкая"
+                                       Margin="0,-5,0,0"
+                                       FontSize="Micro" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton ControlTemplate="{StaticResource RadioButtonTemplate}">
+                        <RadioButton.Content>
+                            <StackLayout>
+                                <Image Source="VAS_3.jpg"
+                                       HeightRequest="40"
+                                       WidthRequest="40"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="CenterAndExpand"/>
+                                <Label Text="Легкая"
+                                       FontSize="Micro" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton ControlTemplate="{StaticResource RadioButtonTemplate}">
+                        <RadioButton.Content>
+                            <StackLayout>
+                                <Image Source="VAS_4.jpg"
+                                       HeightRequest="40"
+                                       WidthRequest="40"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="CenterAndExpand"/>
+                                <Label Text="Средняя"
+                                       FontSize="Micro" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton ControlTemplate="{StaticResource RadioButtonTemplate}">
+                        <RadioButton.Content>
+                            <StackLayout>
+                                <Image Source="VAS_5.jpg"
+                                       HeightRequest="40"
+                                       WidthRequest="40"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="CenterAndExpand"/>
+                                <Label Text="Сильная"
+                                       FontSize="Micro" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </RadioButton.Content>
+                    </RadioButton>
+                    <RadioButton ControlTemplate="{StaticResource RadioButtonTemplate}">
+                        <RadioButton.Content>
+                            <StackLayout HorizontalOptions="Center"
+                                         VerticalOptions="Center">
+                                <Image Source="VAS_6.jpg"
+                                       Margin="-1,0,10,0"
+                                       HeightRequest="40"
+                                       WidthRequest="40"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="CenterAndExpand"/>
+                                <Label Text="Очень"
+                                       Margin="0,-5,0,-5"
+                                       FontSize="Micro" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand">
+                                </Label>
+                                <Label Text="сильная"
+                                       Margin="0,-5,0,0"
+                                       FontSize="Micro" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand">
+                                </Label>
+                            </StackLayout>
+                        </RadioButton.Content>
+                    </RadioButton>
+                </StackLayout>
+                
+                <Label Text="Испытываете ли Вы сегодня тошноту?"
+                       Margin="5"
+                       FontSize="Medium"
+                       VerticalOptions="FillAndExpand" 
+                       HorizontalOptions="FillAndExpand"/>
+                <RadioButton Content="Да" 
+                             FontSize="Small"/>
+                <RadioButton Content="Нет" 
+                             FontSize="Small"/>
+
+                <Label Text="Была ли у Вас сегодня рвота?"
+                       Margin="5"
+                       FontSize="Medium"
+                       VerticalOptions="FillAndExpand" 
+                       HorizontalOptions="FillAndExpand"/>
+                <RadioButton Content="Да" 
+                             FontSize="Small"/>
+                <RadioButton Content="Нет" 
+                             FontSize="Small"/>
+
+                <Button Margin="0,10,0,0" 
+                        Text="Записать ответы и подобрать упражнения"
+                        Command="{Binding StartTrainingCommand}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

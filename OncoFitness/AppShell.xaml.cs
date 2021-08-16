@@ -1,7 +1,5 @@
-﻿using OncoFitness.ViewModels;
-using OncoFitness.Views;
+﻿using OncoFitness.Views;
 using System;
-using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace OncoFitness
@@ -16,6 +14,7 @@ namespace OncoFitness
 			Routing.RegisterRoute(nameof(TrainingDetailPage), typeof(TrainingDetailPage));
 			Routing.RegisterRoute(nameof(StartTrainingPage), typeof(StartTrainingPage));
 			Routing.RegisterRoute(nameof(EndTrainingPage), typeof(EndTrainingPage));
+			Routing.RegisterRoute(nameof(PreliminarySurveyPage), typeof(PreliminarySurveyPage));
 		}
 
 		private async void OnMenuItemClicked(object sender, EventArgs e)

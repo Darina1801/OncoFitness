@@ -1,11 +1,9 @@
 ﻿using OncoFitness.Models;
 using OncoFitness.Views;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -19,7 +17,7 @@ namespace OncoFitness.ViewModels
 
 		public ObservableCollection<Training> Items { get; set; }
 		public Command LoadItemsCommand { get; }
-		public Command StartTrainingCommand { get; }
+		public Command StartSurveyCommand { get; }
 		public Command<Training> ItemTapped { get; }
 		public DateTime? Date
 		{
@@ -62,7 +60,7 @@ namespace OncoFitness.ViewModels
 
 			Items = new ObservableCollection<Training>();
 			LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-			StartTrainingCommand = new Command(async () => await ExecuteStartTrainingCommand());
+			StartSurveyCommand = new Command(async () => await ExecuteStartSurveyCommand());
 
 			ItemTapped = new Command<Training>(OnItemSelected);
 
@@ -95,14 +93,13 @@ namespace OncoFitness.ViewModels
 			}
 		}
 
-		async Task ExecuteStartTrainingCommand()
+		async Task ExecuteStartSurveyCommand()
 		{
 			IsBusy = true;
 
 			try
 			{
-				await Shell.Current.GoToAsync(nameof(StartTrainingPage));
-				//await Shell.Current.GoToAsync($"{nameof(StartTrainingPage)}?{nameof(TrainingDetailViewModel.ItemId)}={item.Id}");
+				await Shell.Current.GoToAsync(nameof(PreliminarySurveyPage));
 			}
 			catch (Exception ex)
 			{
