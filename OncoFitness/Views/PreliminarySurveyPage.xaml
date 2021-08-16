@@ -16,7 +16,7 @@
             <RadioButton Value="Очень плохо">
                 <RadioButton.Content>
                     <StackLayout>
-                        <Image Source="1_VAS_very_bad.jpg"
+                        <Image Source="VAS_6.jpg"
                            HorizontalOptions="Center"
                            VerticalOptions="CenterAndExpand" />
                         <Label Text="Очень плохо"
@@ -28,7 +28,7 @@
             <RadioButton Value="Плохо">
                 <RadioButton.Content>
                     <StackLayout>
-                        <Image Source="2_VAS_bad.jpg"
+                        <Image Source="VAS_5.jpg"
                            HorizontalOptions="Center"
                            VerticalOptions="CenterAndExpand" />
                         <Label Text="Плохо"
@@ -40,7 +40,7 @@
             <RadioButton Value="Средне">
                 <RadioButton.Content>
                     <StackLayout>
-                        <Image Source="3_VAS_middling.jpg"
+                        <Image Source="VAS_4.jpg"
                            HorizontalOptions="Center"
                            VerticalOptions="CenterAndExpand" />
                         <Label Text="Средне"
@@ -52,7 +52,7 @@
             <RadioButton Value="Хорошо">
                 <RadioButton.Content>
                     <StackLayout>
-                        <Image Source="4_VAS_good.jpg"
+                        <Image Source="VAS_3.jpg"
                            HorizontalOptions="Center"
                            VerticalOptions="CenterAndExpand" />
                         <Label Text="Хорошо"
@@ -64,7 +64,7 @@
             <RadioButton Value="Очень хорошо">
                 <RadioButton.Content>
                     <StackLayout>
-                        <Image Source="5_VAS_very_good.jpg"
+                        <Image Source="VAS_2.jpg"
                            HorizontalOptions="Center"
                            VerticalOptions="CenterAndExpand" />
                         <Label Text="Очень хорошо"
@@ -76,7 +76,7 @@
             <RadioButton Value="Отлично">
                 <RadioButton.Content>
                     <StackLayout>
-                        <Image Source="6_VAS_excellent.jpg"
+                        <Image Source="VAS_1.jpg"
                            HorizontalOptions="Center"
                            VerticalOptions="CenterAndExpand" />
                         <Label Text="Отлично"
@@ -128,7 +128,7 @@
             <RadioButton Value="Очень сильная">
                 <RadioButton.Content>
                     <StackLayout>
-                        <Image Source="1_VAS_very_bad.jpg"
+                        <Image Source="VAS_6.jpg"
                            HorizontalOptions="Center"
                            VerticalOptions="CenterAndExpand" />
                         <Label Text="Очень сильная"
@@ -140,7 +140,7 @@
             <RadioButton Value="Сильная">
                 <RadioButton.Content>
                     <StackLayout>
-                        <Image Source="2_VAS_bad.jpg"
+                        <Image Source="VAS_5.jpg"
                            HorizontalOptions="Center"
                            VerticalOptions="CenterAndExpand" />
                         <Label Text="Сильная"
@@ -152,7 +152,7 @@
             <RadioButton Value="Средняя">
                 <RadioButton.Content>
                     <StackLayout>
-                        <Image Source="3_VAS_middling.jpg"
+                        <Image Source="VAS_4.jpg"
                            HorizontalOptions="Center"
                            VerticalOptions="CenterAndExpand" />
                         <Label Text="Средняя"
@@ -164,7 +164,7 @@
             <RadioButton Value="Легкая">
                 <RadioButton.Content>
                     <StackLayout>
-                        <Image Source="4_VAS_good.jpg"
+                        <Image Source="VAS_3.jpg"
                            HorizontalOptions="Center"
                            VerticalOptions="CenterAndExpand" />
                         <Label Text="Легкая"
@@ -176,7 +176,7 @@
             <RadioButton Value="Очень легкая">
                 <RadioButton.Content>
                     <StackLayout>
-                        <Image Source="5_VAS_very_good.jpg"
+                        <Image Source="VAS_2.jpg"
                            HorizontalOptions="Center"
                            VerticalOptions="CenterAndExpand" />
                         <Label Text="Очень легкая"
@@ -188,7 +188,7 @@
             <RadioButton Value="Слабости нет">
                 <RadioButton.Content>
                     <StackLayout>
-                        <Image Source="6_VAS_excellent.jpg"
+                        <Image Source="VAS_1.jpg"
                            HorizontalOptions="Center"
                            VerticalOptions="CenterAndExpand" />
                         <Label Text="Слабости нет"

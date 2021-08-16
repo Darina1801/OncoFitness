@@ -14,7 +14,7 @@ namespace OncoFitness.ViewModels
 
 		public PreliminarySurveyViewModel()
 		{
-			Title = "Предварительный вопрос";
+			Title = "Предварительный опрос";
 
 			StartSurveyCommand = new Command(async () => await ExecuteStartSurveyCommand());
 		}
