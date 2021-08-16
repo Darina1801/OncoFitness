@@ -1,8 +1,6 @@
 ﻿using OncoFitness.Views;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -10,22 +8,22 @@ namespace OncoFitness.ViewModels
 {
 	class PreliminarySurveyViewModel : BaseViewModel
 	{
-		public Command StartSurveyCommand { get; }
+		public Command StartTrainingCommand { get; }
 
 		public PreliminarySurveyViewModel()
 		{
 			Title = "Предварительный опрос";
 
-			StartSurveyCommand = new Command(async () => await ExecuteStartSurveyCommand());
+			StartTrainingCommand = new Command(async () => await ExecuteStartTrainingCommand());
 		}
 
-		async Task ExecuteStartSurveyCommand()
+		async Task ExecuteStartTrainingCommand()
 		{
 			IsBusy = true;
 
 			try
 			{
-				await Shell.Current.GoToAsync(nameof(PreliminarySurveyPage));
+				await Shell.Current.GoToAsync(nameof(StartTrainingPage));
 			}
 			catch (Exception ex)
 			{

@@ -1,18 +1,38 @@
-﻿using System;
-using System.Windows.Input;
-using Xamarin.Essentials;
+﻿using OncoFitness.Views;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace OncoFitness.ViewModels
 {
 	public class AboutViewModel : BaseViewModel
 	{
+		public Command StartSurveyCommand { get; }
+
 		public AboutViewModel()
 		{
 			Title = "О программе";
-			OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
+
+			StartSurveyCommand = new Command(async () => await ExecuteStartSurveyCommand());
 		}
 
-		public ICommand OpenWebCommand { get; }
+		async Task ExecuteStartSurveyCommand()
+		{
+			IsBusy = true;
+
+			try
+			{
+				await Shell.Current.GoToAsync(nameof(PreliminarySurveyPage));
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex);
+			}
+			finally
+			{
+				IsBusy = false;
+			}
+		}
 	}
 }
